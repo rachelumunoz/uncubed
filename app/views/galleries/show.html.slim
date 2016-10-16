@@ -1,8 +1,11 @@
 = image_tag @gallery.image.url(:medium)
 h1 = @gallery.name
 h2 = @gallery.address
-
-p = link_to "Add a Review", "/galleries/1/comments/new"
+p = @gallery.get_upvotes.size
+= link_to "Like", like_gallery_path(@gallery)
+p = @gallery.get_downvotes.size
+= link_to "Disike", dislike_gallery_path(@gallery)
+p = link_to "Add a Review", new_gallery_comment_path(@gallery)
 
 p = @comments.each do |comment|
   p = comment.content

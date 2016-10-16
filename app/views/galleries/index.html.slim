@@ -4,3 +4,5 @@ h1 WhiteCube
   ul
     li = link_to gallery.name, gallery_path(gallery)
     li = gallery.address
+    li upvotes:  #{gallery.get_upvotes.size}
+    li downvotes:  #{gallery.get_downvotes.size}

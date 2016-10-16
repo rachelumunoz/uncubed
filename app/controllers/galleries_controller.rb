@@ -1,5 +1,5 @@
  class GalleriesController < ApplicationController
-    before_action :set_gallery, only: [:show]
+    before_action :set_gallery, only: [:show, :upvote, :downvote]
   def index
     @galleries = Gallery.all
   end
@@ -21,6 +21,14 @@
     @comments = @gallery.comments
   end
 
+  def upvote
+    @gallery.upvote_by current_user
+    redirect_to :back
+  end
+  def downvote
+    @gallery.downvote_by current_user
+    redirect_to :back
+  end
   private
     def gallery_params
       params.require(:gallery).permit(:name, :address, :image)

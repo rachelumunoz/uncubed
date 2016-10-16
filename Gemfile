@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'devise'
 gem "paperclip", "~> 5.0.0"
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
