@@ -1,0 +1,8 @@
+h1 = @gallery.name
+h2 = @gallery.address
+
+p = link_to "Add a Review", "/galleries/1/comments/new"
+
+p = @comments.each do |comment|
+  p = comment.content
+  p = comment.user.username
