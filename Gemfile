@@ -15,6 +15,7 @@ gem 'react-rails', '~> 1.0'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'devise'
+gem "paperclip", "~> 5.0.0"
 
 group :development, :test do
   gem 'byebug', platform: :mri

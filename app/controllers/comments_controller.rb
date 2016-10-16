@@ -12,12 +12,10 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new(comment_params)
     @comment.user = current_user
-    puts "=====coomment========="
-      puts @comment.commentable
     if @comment.save
       redirect_to @commentable, notice: "Review Created"
     else
-      flash.now[:alert] =  @commentable.errors.full_messages
+      flash.now[:alert] =  @comment.errors.full_messages
       render :new
     end
   end
