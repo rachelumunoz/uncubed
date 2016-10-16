@@ -4,7 +4,8 @@ class CreateComments < ActiveRecord::Migration[5.0]
       t.text :content
       t.integer :commentable_id
       t.string :commentable_type
-
+      t.references :user
+      
       t.timestamps
     end
     add_index :comments, [:commentable_type, :commentable_id]

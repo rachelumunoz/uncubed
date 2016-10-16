@@ -18,6 +18,7 @@
   end
 
   def show
+    @comments = @gallery.comments
   end
 
   private

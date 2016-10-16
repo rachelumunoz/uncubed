@@ -1,0 +1,8 @@
+h1 Comments#index
+
+#comments
+  -@comments.each do |comment|
+    .comment
+      p = comment.content
+
+p = link_to "Add Review", [:new, @commentable, :comment]
