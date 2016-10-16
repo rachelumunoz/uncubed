@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
  
   resources :galleries, only: [:new, :create, :index, :show] do
+      member do
+        get "like", to: "galleries#upvote"
+        get "dislike", to: "galleries#downvote"
+      end
       resources :comments, only: [:index, :new, :create]
     end
 
