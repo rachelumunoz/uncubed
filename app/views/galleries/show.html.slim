@@ -2,7 +2,7 @@
 h1 = @gallery.name
 h2 = @gallery.address
 
-p = link_to "Add a Review", "/galleries/1/comments/new"
+p = link_to "Add a Review", new_gallery_comment_path(@gallery)
 
 p = @comments.each do |comment|
   p = comment.content
