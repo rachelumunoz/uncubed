@@ -12,5 +12,14 @@ RSpec.describe "Create Gallery" do
     expect(page).to have_content "The Gallery"
   end
 
-  scenario "Unsuccessfully"
+  scenario "Unsuccessfully" do
+    visit root_path
+    click_on "Add Gallery"
+
+    fill_in "Name", with: "A Gallery"
+    fill_in "Address", with: ""
+
+    #need better test
+    expect(current_path).to eq new_gallery_path
+  end
 end

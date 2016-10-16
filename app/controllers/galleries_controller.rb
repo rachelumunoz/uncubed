@@ -9,8 +9,11 @@
 
   def create
     @gallery = Gallery.new(gallery_params)
-    @gallery.save
-    redirect_to root_path
+    if @gallery.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
