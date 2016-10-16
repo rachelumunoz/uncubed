@@ -1,4 +1,5 @@
  class GalleriesController < ApplicationController
+    before_action :set_gallery, only: [:show]
   def index
     @galleries = Gallery.all
   end
@@ -16,8 +17,15 @@
     end
   end
 
+  def show
+  end
+
   private
     def gallery_params
       params.require(:gallery).permit(:name, :address)
+    end
+
+    def set_gallery
+      @gallery = Gallery.find(params[:id])
     end
 end
