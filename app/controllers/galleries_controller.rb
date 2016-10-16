@@ -23,7 +23,7 @@
 
   private
     def gallery_params
-      params.require(:gallery).permit(:name, :address)
+      params.require(:gallery).permit(:name, :address, :image)
     end
 
     def set_gallery
