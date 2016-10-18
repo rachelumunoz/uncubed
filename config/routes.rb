@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         get "dislike", to: "galleries#downvote"
       end
       resources :comments, only: [:index, :new, :create]
+      resources :exhibitions, only: [:new, :create]
     end
 
   
