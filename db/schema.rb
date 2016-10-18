@@ -29,12 +29,14 @@ ActiveRecord::Schema.define(version: 20161016221957) do
   create_table "galleries", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
+    t.integer  "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.index ["user_id"], name: "index_galleries_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
