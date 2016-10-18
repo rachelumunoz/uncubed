@@ -3,7 +3,7 @@ h1 Exhibition list
   = exh.title
   p = exh.get_upvotes.size
   = link_to "Like", like_gallery_exhibition_path(@gallery,exh)
-  = link_to "Disklike", dislike_gallery_exhibition_path(@gallery, exh)
+  = link_to "Dislike", dislike_gallery_exhibition_path(@gallery, exh)
   p = exh.get_downvotes.size
   
   = 
