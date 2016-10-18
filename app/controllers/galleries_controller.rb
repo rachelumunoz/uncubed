@@ -10,7 +10,7 @@
 
   def create
     @gallery = Gallery.new(gallery_params)
-    @gallery.submitted_user = current_user
+    @gallery.submitted_by = current_user
     if @gallery.save
       redirect_to root_path
     else

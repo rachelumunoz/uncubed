@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161016221957) do
+ActiveRecord::Schema.define(version: 20161018003821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20161016221957) do
     t.datetime "updated_at",       null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "exhibitions", force: :cascade do |t|
+    t.string   "title"
+    t.string   "artist"
+    t.integer  "gallery_id"
+    t.datetime "date_begin"
+    t.datetime "date_end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gallery_id"], name: "index_exhibitions_on_gallery_id", using: :btree
   end
 
   create_table "galleries", force: :cascade do |t|
@@ -71,4 +82,5 @@ ActiveRecord::Schema.define(version: 20161016221957) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
   end
 
+  add_foreign_key "exhibitions", "galleries"
 end
