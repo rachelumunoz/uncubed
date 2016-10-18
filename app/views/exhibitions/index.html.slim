@@ -1,0 +1,10 @@
+h1 Exhibition list
+- @exhibitions.each do |exh|
+  = exh.title
+  p = exh.get_upvotes.size
+  = link_to "Like", like_gallery_exhibition_path(@gallery,exh)
+  = link_to "Disklike", dislike_gallery_exhibition_path(@gallery, exh)
+  p = exh.get_downvotes.size
+  
+  = 
+/ p = link_to "Add a Review", new_gallery_comment_path(@gallery)

@@ -14,6 +14,7 @@
     if @gallery.save
       redirect_to root_path
     else
+      flash.now[:alert] =  @gallery.errors.full_messages
       render :new
     end
   end
