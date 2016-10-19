@@ -21,9 +21,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def show
+  # def show
 
-  end
+  # end
 
   private
   def load_commentable

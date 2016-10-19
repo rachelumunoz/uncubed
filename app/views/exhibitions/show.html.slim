@@ -5,6 +5,10 @@ h3 comments
   
   = @exhibition.comments.each |c|
     = c.content
+p = @exhibition.get_upvotes.size
+= link_to "Like", like_exhibition_path(@exhibition)
+p = @exhibition.get_downvotes.size
+= link_to "Dislike", dislike_exhibition_path(@exhibition)
 
 h4 Add a review
 

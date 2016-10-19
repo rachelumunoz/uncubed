@@ -12,7 +12,7 @@ Rails.application.routes.draw do
         get "dislike", to: "galleries#downvote"
       end
       concerns :commentable
-      resources :exhibitions, only: [:new, :create, :index, :show] do
+      resources :exhibitions, only: [:new, :create, :show, :index] do
         member do
           get "like", to: "exhibitions#upvote"
           get "dislike", to: "exhibitions#downvote"
