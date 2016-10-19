@@ -4,6 +4,6 @@ class User < ApplicationRecord
   validates :username, :email, :password, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :comments, as: :commentable
+  has_many :comments_added, class_name: :Comment
   has_many :submitted_galleries, class_name: :Gallery
 end
