@@ -12,3 +12,10 @@ p = link_to "Add a Review", new_gallery_comment_path(@gallery)
 p = @comments.each do |comment|
   p = comment.content
   p = comment.user.username
+
+
+h1 Add a Review
+
+= simple_form_for([@gallery, @comment]) do |f|
+  = f.text_field :content
+  = f.submit

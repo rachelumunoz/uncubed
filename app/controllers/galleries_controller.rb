@@ -21,6 +21,7 @@
 
   def show
     @comments = @gallery.comments
+    @comment = Comment.new
   end
 
   def upvote

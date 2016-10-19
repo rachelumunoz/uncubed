@@ -6,4 +6,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :comments_added, class_name: :Comment
   has_many :submitted_galleries, class_name: :Gallery
+
+  def gallery_comments
+    Comment.find_by(user_id: self.id, commentable_type: "Gallery")
+  end
+
+  def exhibition_comments
+    Comment.find_by(user_id: self.id, commentable_type: "Exhibition")
+  end
 end
+
