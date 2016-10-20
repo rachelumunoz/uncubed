@@ -3,10 +3,7 @@ var Galleries = React.createClass({
   render: function(){
     var galleries = this.props.galleries.map(function(gallery){
       return(
-        <tr key={gallery.id}>
-          <td>{gallery.name}</td>
-          <td>{gallery.address}</td>
-        </tr>
+        <Gallery gallery={gallery} key={gallery.id} />
       )
     })
     return (
