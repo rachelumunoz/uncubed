@@ -8,11 +8,11 @@ class User < ApplicationRecord
   has_many :submitted_galleries, class_name: :Gallery
 
   def gallery_comments
-    Comment.find_by(user_id: self.id, commentable_type: "Gallery")
+    Comment.where(user_id: self.id, commentable_type: "Gallery")
   end
 
   def exhibition_comments
-    Comment.find_by(user_id: self.id, commentable_type: "Exhibition")
+    Comment.where(user_id: self.id, commentable_type: "Exhibition")
   end
 end
 
