@@ -1,5 +1,10 @@
 h1 #{current_user.username}'s page
 
-
+h3  Your gallery reviews
+- current_user.gallery_comments.each do |comment|
+  p = comment.content
+h3 Your exhibition reviews
+- current_user.exhibition_comments.each do |comment|
+  p = comment.content
 <p>
   = link_to "Edit", edit_user_path(@user)
