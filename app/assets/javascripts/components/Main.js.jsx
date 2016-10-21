@@ -3,8 +3,9 @@ var Main = React.createClass({
   render: function (){
     return (
       <div>
-       <Nav/>
+       {/* <Nav/>*/}
        <Galleries galleries={this.props.galleries} />
+       <GalleryForm/>
       </div>
     )
   }
