@@ -4,6 +4,14 @@ class ExhibitionsController < ApplicationController
   def index
     @gallery = Gallery.find(params[:gallery_id])
     @exhibitions = @gallery.exhibitions
+    respond_to do |format|
+      format.json do 
+        render :json => @exhibitions
+      end
+      format.html do 
+        render :index
+      end
+    end
   end
 
   def create
