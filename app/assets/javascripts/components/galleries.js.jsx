@@ -7,20 +7,22 @@ var Galleries = React.createClass({
       )
     })
     return (
-      <div>
-        <h1>Galleries</h1>
-        <div id="galleries">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Location</th>
-              </tr>
-            </thead>
-            <tbody>
-              { galleries }
-            </tbody>
-          </table>
+      <div> 
+        <div className="container">
+          <h1>Galleries</h1>
+          <div id="galleries">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                { galleries }
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     )
