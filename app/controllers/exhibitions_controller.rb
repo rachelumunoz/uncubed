@@ -1,6 +1,6 @@
 class ExhibitionsController < ApplicationController
   before_action :set_exibition, only: [:upvote, :downvote, :show]
-  before_action :set_gallery, only: [:index, :new]
+  before_action :set_gallery, only: [:index, :new, :create]
 
   def index
     @exhibitions = @gallery.exhibitions

@@ -32,9 +32,11 @@ ActiveRecord::Schema.define(version: 20161018003821) do
     t.integer  "gallery_id"
     t.datetime "date_begin"
     t.datetime "date_end"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gallery_id"], name: "index_exhibitions_on_gallery_id", using: :btree
+    t.index ["user_id"], name: "index_exhibitions_on_user_id", using: :btree
   end
 
   create_table "galleries", force: :cascade do |t|
@@ -83,4 +85,5 @@ ActiveRecord::Schema.define(version: 20161018003821) do
   end
 
   add_foreign_key "exhibitions", "galleries"
+  add_foreign_key "exhibitions", "users"
 end

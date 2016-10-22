@@ -6,6 +6,7 @@ class CreateExhibitions < ActiveRecord::Migration[5.0]
       t.references :gallery, foreign_key: true
       t.datetime :date_begin
       t.datetime :date_end
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
