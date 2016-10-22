@@ -17,7 +17,6 @@ gallery_2 = Gallery.create!(name: "Various Small Fires", address: "812 Highland 
 exhibition1 = Exhibition.create!(title: "Jessica Eaton Solo Show", artist: "Jessica Eaton", date_begin: Date.new(2016, 9, 24), date_end: Date.new(2016, 11, 12), gallery_id: 1)
 
 
-
 # gallery_2 
 exhibition2 = Exhibition.create!(title: "Relics of the Epoch", artist: "Jeff Ziln", date_begin: Date.new(2016, 9, 17), date_end: Date.new(2016, 10, 22), gallery_id: 2)
 

@@ -1,5 +1,5 @@
  class GalleriesController < ApplicationController
-    before_action :set_gallery, only: [:show, :upvote, :downvote]
+    before_action :set_gallery, only: [:show, :upvote, :downvote, :update, :add_tags]
   def index
     @galleries = Gallery.all
     # render component: 'Main', props: { galleries: @galleries }
@@ -20,6 +20,16 @@
     end
   end
 
+  def add_tags
+    # puts params
+    @gallery.tag_list.add(params[:gallery][:tag_list])
+    if @gallery.save
+      redirect_back fallback_location:  { action: "show", id: @gallery.id }
+    else
+       flash.now[:alert] =  @gallery.errors.full_messages
+    end
+  end
+
   def show
     @comments = @gallery.comments
     @comment = Comment.new
@@ -35,7 +45,7 @@
   end
   private
     def gallery_params
-      params.require(:gallery).permit(:name, :address, :image)
+      params.require(:gallery).permit(:name, :address, :image, :tags)
     end
 
     def set_gallery

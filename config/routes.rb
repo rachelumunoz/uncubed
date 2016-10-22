@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       member do
         get "like", to: "galleries#upvote"
         get "dislike", to: "galleries#downvote"
+        patch "add_tags", to: "galleries#add_tags"
       end
       concerns :commentable
       resources :exhibitions, only: [:new, :create, :show, :index] do

@@ -16,11 +16,15 @@
       - @gallery.exhibitions.each do |exh|
         p = exh.title
         p = exh.artist
-      
   .row
     div class="well col-xs-12 col-sm-6 text-center"
       h4 Images
       = image_tag @gallery.image.url(:medium)
+    div class="well col-xs-12 col-sm-6 text-center"
+      h4 Tags
+      = simple_form_for @gallery, :url => url_for(controller: 'galleries', action: 'add_tags') do |f|
+        = f.input :tag_list
+        = f.submit
 
 / h4 = link_to "Add an exhibition", new_gallery_exhibition_path(@gallery)
 / h4 = link_to "View all exhibitions", gallery_exhibitions_path(@gallery)
