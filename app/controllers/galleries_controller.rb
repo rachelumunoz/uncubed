@@ -31,7 +31,7 @@
   end
 
   def show
-    @comments = @gallery.comments
+    @comments = @gallery.comments.order(created_at: :desc).limit(2)
     @comment = Comment.new
   end
 

@@ -24,7 +24,7 @@
       h4 Tags
       = simple_form_for @gallery, :url => url_for(controller: 'galleries', action: 'add_tags') do |f|
         = f.input :tag_list
-        = f.submit
+        = f.button :submit, "Add tag"
 
 / h4 = link_to "Add an exhibition", new_gallery_exhibition_path(@gallery)
 / h4 = link_to "View all exhibitions", gallery_exhibitions_path(@gallery)
