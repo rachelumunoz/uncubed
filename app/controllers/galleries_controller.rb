@@ -2,7 +2,7 @@
     before_action :set_gallery, only: [:show, :upvote, :downvote]
   def index
     @galleries = Gallery.all
-    render component: 'Main', props: { galleries: @galleries }
+    # render component: 'Main', props: { galleries: @galleries }
   end
 
   def new

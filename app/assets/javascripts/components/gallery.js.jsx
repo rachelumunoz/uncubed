@@ -11,7 +11,7 @@ var Gallery = React.createClass({
       success: function(e){
         e.map(function(exh){
           console.log(exh)
-          // return <Exhibition exhibition={exh} key={exh.id} />
+    
         })
 
       }.bind(this)
@@ -22,7 +22,7 @@ var Gallery = React.createClass({
     return (
       <tr>
         <td>
-          <a onClick={this.handleClick}>
+          <a href="/galleries/"onClick={this.handleClick}>
             {this.state.gallery.name}
           </a>
         </td>
