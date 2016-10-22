@@ -6,36 +6,4 @@
       div class="well col-xs-12 col-sm-6 text-center" 
         h3 = link_to gallery.name, gallery_path(gallery)
         h5 = gallery.address
-
-
-
-   
-/ <!-- 
-/ ! / .container 
-/ /   h2 Galleries
-
-/ /   -@galleries.each do |gallery|
-/ /   .container
-/ /     .row
-/ /       p 
-/ /         = gallery.name --> -->
-/ <!-- / table.table.table-striped
-/   thead
-/     tr
-/       th Name
-/       th Address
-/   tbody
-/     tr
-/     -@galleries.each do |gallery|
-/       td 
-/         = link_to gallery.name, gallery_path(gallery)
-/       td 
-/         = gallery.address
-
-
-
-  / ul
-  /   li = link_to gallery.name, gallery_path(gallery)
-  /   li = gallery.address
-  /   li upvotes:  #{gallery.get_upvotes.size}
-  /   li downvotes:  #{gallery.get_downvotes.size} -->
+        h6 #{link_to "Like", like_gallery_path(gallery)} #{gallery.get_upvotes.size} #{link_to "Dislike", dislike_gallery_path(gallery)} #{gallery.get_downvotes.size}
