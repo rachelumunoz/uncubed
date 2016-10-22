@@ -1,5 +1,7 @@
 .container
   .row
+    div class="well text-center"
+      h1 Galleries
     - @galleries.each do |gallery|
       div class="well col-xs-12 col-sm-6 text-center" 
         h3 = link_to gallery.name, gallery_path(gallery)
