@@ -1,8 +1,8 @@
 class ExhibitionsController < ApplicationController
   before_action :set_exibition, only: [:upvote, :downvote, :show]
+  before_action :set_gallery, only: [:index, :new]
 
   def index
-    @gallery = Gallery.find(params[:gallery_id])
     @exhibitions = @gallery.exhibitions
     respond_to do |format|
       format.json do 
@@ -12,6 +12,10 @@ class ExhibitionsController < ApplicationController
         render :index
       end
     end
+  end
+
+  def new
+    @exhibition = @gallery.exhibitions.new
   end
 
   def create
@@ -43,6 +47,11 @@ class ExhibitionsController < ApplicationController
   def set_exibition
     @exhibition = Exhibition.find(2)
   end
+
+  def set_gallery 
+    @gallery = Gallery.find(params[:gallery_id])
+  end
+  
   def exhibition_params
     params.require(:exhibition).permit(:title, :artist, :date_begin, :date_end)
   end
