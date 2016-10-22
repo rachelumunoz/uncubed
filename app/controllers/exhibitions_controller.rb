@@ -1,6 +1,6 @@
 class ExhibitionsController < ApplicationController
   before_action :set_exibition, only: [:upvote, :downvote, :show]
-  before_action :set_gallery, only: [:index, :new]
+  before_action :set_gallery, only: [:index, :new, :create]
 
   def index
     @exhibitions = @gallery.exhibitions
@@ -53,6 +53,6 @@ class ExhibitionsController < ApplicationController
   end
   
   def exhibition_params
-    params.require(:exhibition).permit(:title, :artist, :date_begin, :date_end)
+    params.require(:exhibition).permit(:title, :artist, :date_begin, :date_end, :tags)
   end
 end
