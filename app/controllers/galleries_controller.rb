@@ -21,7 +21,6 @@
   end
 
   def add_tags
-    # puts params
     @gallery.tag_list.add(params[:gallery][:tag_list])
     if @gallery.save
       redirect_back fallback_location:  { action: "show", id: @gallery.id }
@@ -31,7 +30,7 @@
   end
 
   def show
-    @comments = @gallery.comments
+    @comments = @gallery.comments.order(created_at: :desc).limit(2)
     @comment = Comment.new
   end
 
