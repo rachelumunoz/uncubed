@@ -1,3 +1,12 @@
-// Place all the styles related to the Galleries controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.sub-nav {
+  li {
+    display: inline;
+    a {
+      padding: 1rem .5rem;
+    }
+  }
+  ul {
+    list-style: none;
+  }
+}
+
