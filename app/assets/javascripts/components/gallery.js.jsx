@@ -1,12 +1,12 @@
 var Gallery = React.createClass({
   render: function(){
-    var {name, address, image_file_name, upvotes} = this.props
+    var {name, address, image_file_name, votes} = this.props
     return (
-      <div className="well col-md-4 col-md-offset-4 text-center"> 
-        <h3 className="h3">{name}</h3>
-        <h5 className="h5">{address}</h5>
-        <h2>{upvotes}</h2>
-        <img src={image_file_name} />
+      <div id="gallery-component"className="well col-md-4 col-md-offset-4"> 
+        <span className="gallery-info"><h3 className="h3">{name}</h3></span>
+        <h5 className="h5 gallery-info">{address}</h5>
+        <h2></h2>
+        <img className="gallery-info" src={image_file_name}/>
       </div>
     )
   }

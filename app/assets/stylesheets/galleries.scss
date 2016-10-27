@@ -10,3 +10,12 @@
   }
 }
 
+#gallery-component{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  .gallery-info{
+    width: 300rem;
+  }
+}
+
