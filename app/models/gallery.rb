@@ -6,8 +6,8 @@ class Gallery < ApplicationRecord
  
   has_many :exhibitions
   has_many :comments, as: :commentable
-
-  has_many :photographs
+  has_many  :images
+  accepts_nested_attributes_for :images
   
   validates :name, :address, :user_id, presence: true
   

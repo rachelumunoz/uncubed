@@ -42,10 +42,15 @@
     @gallery.downvote_by current_user
     redirect_to :back
   end
+
   private
     def gallery_params
-      params.require(:gallery).permit(:name, :address, :image, :tags)
+      params.require(:gallery).permit(:name, :address, :tags, images_attributes: :image)
     end
+
+    # def photo_params
+    #   params.require(:gallery).permit(:images)
+    # end
 
     def set_gallery
       @gallery = Gallery.find(params[:id])

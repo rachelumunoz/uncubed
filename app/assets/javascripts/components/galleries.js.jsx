@@ -1,6 +1,10 @@
 var Galleries = React.createClass({
   getInitialState: function(){
-    return {galleryData: this.props.galleryData}
+    return {
+      galleryData: this.props.galleryData,
+      onDisplay: 'all'
+
+    }
 
   },
   showResults: function(response){
@@ -23,9 +27,34 @@ var Galleries = React.createClass({
         }
       })
   },
+  handleDisplay: function(type){
+    // console.log(type)
+    this.setState({
+      onDisplay: type
+    })
+  },
   render: function(){
-    var {galleryData} = this.state
+    var {galleryData, onDisplay} = this.state
 
+    var mainDisplay = function(){
+      switch(onDisplay){
+        case 'All':
+        return renderGalleries()
+        break
+        case 'Add':
+        return <GalleryForm/>
+        break
+        case 'Popular':
+        console.log('popular filter')
+        break
+        case 'Photos':
+        console.log('photos')
+        break
+        case 'Tags':
+        console.log('tags')
+        break
+      }
+    }
     var renderGalleries = function(){
       return galleryData.map((gallery)=>{
         return (
@@ -38,10 +67,10 @@ var Galleries = React.createClass({
         <div className="row">
           <div className="well text-center col-md-8 col-md-offset-2">
             <h1 className="h1">Galleries</h1>
-            <SubNav/>
+            <SubNav onDisplay={this.handleDisplay}/>
           </div>
           <div>
-            {renderGalleries()}
+            {mainDisplay()}
           </div>
         </div>
       </div>

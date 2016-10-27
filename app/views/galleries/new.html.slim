@@ -1,7 +1,8 @@
 .container
   h1 Add Gallery
-  = simple_form_for(@gallery) do |f|
+  = simple_form_for(@gallery, :html => { :multipart => true }) do |f|
     = f.input :name, required: true
     = f.input :address, required: true
-    = f.input :image, as: :file
+    = f.fields_for :images, Image.new do |a|
+      = a.input :image, as: :file
     = f.submit 
