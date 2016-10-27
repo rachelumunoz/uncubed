@@ -6,7 +6,7 @@ user3 = User.create!(username: "geo", email: "g@g.com", password: "password")
 15.times do Gallery.create!(
   name: Faker::Company.name,
   address: Faker::Address.street_address,
-  image: Faker::Placeholdit.image("300x300", 'jpg'),
+  # image: Faker::Placeholdit.image("300x300", 'jpg'),
   user_id: rand(1..3)
   )
 end
