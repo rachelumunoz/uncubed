@@ -16,3 +16,4 @@
 /         h6 #{link_to "Like", like_gallery_path(gallery)} #{gallery.get_upvotes.size} #{link_to "Dislike", dislike_gallery_path(gallery)} #{gallery.get_downvotes.size}
 /         = image_tag gallery.image.url(:thumb), :class => "thumb-image"
 
+= react_component('Galleries', {galleryData: [] }, {prerender: true}) 
