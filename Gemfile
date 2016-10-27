@@ -21,6 +21,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'font-awesome-sass', '~> 4.6.2'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'faker'
+gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'rails_12factor', group: :production
 
