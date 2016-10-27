@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :comments_added, class_name: :Comment
   has_many :submitted_galleries, class_name: :Gallery
   has_many :submitted_exhibitions, class_name: :Exhibition
-
+  has_many :images
   validates :username, :email, :password, presence: true
 
   def gallery_comments

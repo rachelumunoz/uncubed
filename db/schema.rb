@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20161027192019) do
 
   create_table "images", force: :cascade do |t|
     t.integer  "gallery_id"
+    t.integer  "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 20161027192019) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.index ["gallery_id"], name: "index_images_on_gallery_id", using: :btree
+    t.index ["user_id"], name: "index_images_on_user_id", using: :btree
   end
 
   create_table "taggings", force: :cascade do |t|

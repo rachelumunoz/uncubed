@@ -13,6 +13,7 @@
     @gallery = Gallery.new(gallery_params)
     @gallery.submitted_by = current_user
     if @gallery.save
+      @gallery.images.last.update(user: current_user)
       redirect_to root_path
     else
       flash.now[:alert] =  @gallery.errors.full_messages
