@@ -7,9 +7,8 @@ class Gallery < ApplicationRecord
   has_many :exhibitions
   has_many :comments, as: :commentable
 
+  has_many :photographs
   
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates :name, :address, :user_id, presence: true
   
   def upvotes 
