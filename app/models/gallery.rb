@@ -12,4 +12,7 @@ class Gallery < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates :name, :address, :user_id, presence: true
   
+  def upvotes 
+    self.get_upvotes.size
+  end
 end
