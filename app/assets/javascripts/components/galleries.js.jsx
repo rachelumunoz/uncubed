@@ -38,13 +38,7 @@ var Galleries = React.createClass({
         <div className="row">
           <div className="well text-center col-md-8 col-md-offset-2">
             <h1 className="h1">Galleries</h1>
-              <ul className="sub-nav">
-                <li onClick={this.handleClick}> <a href="#">All</a></li>
-                <li onClick={this.handleClick}><a href="#">Add</a></li>
-                <li onClick={this.handleClick}><a href="#">Popular</a></li>
-                <li onClick={this.handleClick}><a href="#">Photos</a></li>
-                <li onClick={this.handleClick}><a href="#">Tags</a></li>
-              </ul>
+            <SubNav/>
           </div>
           <div>
             {renderGalleries()}
