@@ -10,13 +10,9 @@
   end
 
   def create
-    @gallery = Gallery.new(gallery_params.except(:images))
+    @gallery = Gallery.new(gallery_params)
     @gallery.submitted_by = current_user
-    puts "===================================="
-    # puts params[:gallery][:images]
     if @gallery.save
-      puts gallery_params[:images]
-      # @gallery.images.create!(photo_params)
       redirect_to root_path
     else
       flash.now[:alert] =  @gallery.errors.full_messages
@@ -49,7 +45,7 @@
 
   private
     def gallery_params
-      params.require(:gallery).permit(:name, :address, :tags, :images)
+      params.require(:gallery).permit(:name, :address, :tags, images_attributes: :image)
     end
 
     # def photo_params

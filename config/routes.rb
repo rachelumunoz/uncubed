@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     end
   end
 
+resources :images, only: [:new, :index, :create]
+  
   namespace :api, constraints: {format: :json} do
     namespace :v1 do
       resources :galleries, only: :index
