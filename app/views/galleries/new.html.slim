@@ -3,5 +3,5 @@
   = simple_form_for(@gallery) do |f|
     = f.input :name, required: true
     = f.input :address, required: true
-    = f.input :image, as: :file
+    / = f.file_field :images
     = f.submit 
