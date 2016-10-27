@@ -11,3 +11,18 @@ var SubNav = React.createClass({
     )
   }
 })
+
+
+  // handleClick: function(e){
+  //   e.preventDefault()
+  //   //move this swtich somewhre for all pages
+  //   switch(e.target.text){
+  //     case 'All':
+  //       console.log('render all galleries')
+  //       break;
+  //     case 'Add':
+  //       console.log('render add gallery form')
+  //       break;
+  //     default:
+  //       console.log('all galleries')
+  //   }
