@@ -7,6 +7,7 @@ var Galleries = React.createClass({
     this.setState({
             galleryData: response
         });
+    console.log(this.state.galleryData[0])
   },
   componentDidMount: function() {
       this.loadData("/api/v1/galleries");
@@ -37,13 +38,7 @@ var Galleries = React.createClass({
         <div className="row">
           <div className="well text-center col-md-8 col-md-offset-2">
             <h1 className="h1">Galleries</h1>
-              <ul className="sub-nav text-center">
-                <li onClick={this.handleClick}> <a href="#">All</a></li>
-                <li onClick={this.handleClick}><a href="#">Add</a></li>
-                <li onClick={this.handleClick}><a href="#">Popular</a></li>
-                <li onClick={this.handleClick}><a href="#">Photos</a></li>
-                <li onClick={this.handleClick}><a href="#">Tags</a></li>
-              </ul>
+            <SubNav/>
           </div>
           <div>
             {renderGalleries()}
@@ -52,20 +47,6 @@ var Galleries = React.createClass({
       </div>
     )
   }
-  // handleClick: function(e){
-  //   e.preventDefault()
-  //   //move this swtich somewhre for all pages
-  //   switch(e.target.text){
-  //     case 'All':
-  //       console.log('render all galleries')
-  //       break;
-  //     case 'Add':
-  //       console.log('render add gallery form')
-  //       break;
-  //     default:
-  //       console.log('all galleries')
-  //   }
-    
 })
 
 
