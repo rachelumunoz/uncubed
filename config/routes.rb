@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'galleries#index'
   devise_for :users
+  resources :users, only: [:show, :edit, :update]
  
   concern :commentable do
     resources :comments, only: [:create, :index, :new, :show]
@@ -21,6 +22,10 @@ Rails.application.routes.draw do
         concerns :commentable 
     end
   end
-  
-  resources :users, only: [:show, :edit, :update]
+    
+  namespace :api, constraints: {format: :json} do
+    namespace :v1 do
+      resources :galleries, only: :index
+    end
+  end
 end
