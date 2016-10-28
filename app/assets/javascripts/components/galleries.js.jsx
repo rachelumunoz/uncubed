@@ -42,7 +42,7 @@ var Galleries = React.createClass({
         return renderGalleries()
         break
         case 'Add':
-        return <GalleryForm/>
+        return <FormModal/>
         break
         case 'Popular':
         console.log('popular filter')

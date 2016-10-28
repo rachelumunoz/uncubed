@@ -12,12 +12,17 @@
   def create
     @gallery = Gallery.new(gallery_params)
     @gallery.submitted_by = current_user
-    if @gallery.save
-      @gallery.images.last.update(user: current_user)
-      redirect_to root_path
-    else
-      flash.now[:alert] =  @gallery.errors.full_messages
-      render :new
+    respond_to do |format|
+      if @gallery.save
+        # @gallery.images.last.update(user: current_user)
+        format.html {redirect_to root_path}
+        # format.json { render :json => {:message => "Success"} }
+         format.json { render json: @gallery, each_serializer: GallerySerializer}
+      else
+        format.html { render :new}
+        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+
+      end
     end
   end
 
@@ -48,10 +53,6 @@
     def gallery_params
       params.require(:gallery).permit(:name, :address, :tags, images_attributes: :image)
     end
-
-    # def photo_params
-    #   params.require(:gallery).permit(:images)
-    # end
 
     def set_gallery
       @gallery = Gallery.find(params[:id])
