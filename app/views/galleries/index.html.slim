@@ -15,4 +15,4 @@
 /         h5 = gallery.address
 /         h6 #{link_to "Like", like_gallery_path(gallery)} #{gallery.get_upvotes.size} #{link_to "Dislike", dislike_gallery_path(gallery)} #{gallery.get_downvotes.size}
 
-= react_component('Galleries', {galleryData: [] }, {prerender: true}) 
+= react_component('Main', {currentUser: current_user }, {prerender: true}) 

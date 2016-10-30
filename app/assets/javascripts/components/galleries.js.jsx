@@ -3,9 +3,7 @@ var Galleries = React.createClass({
     return {
       galleryData: this.props.galleryData,
       onDisplay: 'all'
-
     }
-
   },
   showResults: function(response){
     this.setState({
@@ -28,7 +26,6 @@ var Galleries = React.createClass({
       })
   },
   handleDisplay: function(type){
-    // console.log(type)
     this.setState({
       onDisplay: type
     })
@@ -39,20 +36,20 @@ var Galleries = React.createClass({
     var mainDisplay = function(){
       switch(onDisplay){
         case 'All':
-        return renderGalleries()
-        break
+          return renderGalleries()
+          break
         case 'Add':
-        return <FormModal/>
-        break
+          return <FormModal/>
+          break
         case 'Popular':
-        console.log('popular filter')
-        break
+          console.log('popular filter')
+          break
         case 'Photos':
-        console.log('photos')
-        break
+          console.log('photos')
+          break
         case 'Tags':
-        console.log('tags')
-        break
+          console.log('tags')
+          break
       }
     }
     var renderGalleries = function(){
@@ -77,76 +74,3 @@ var Galleries = React.createClass({
     )
   }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var Galleries = React.createClass({
-
-//   render: function(){
-//     var galleries = this.props.galleries.map(function(gallery){
-//       return(
-//         <Gallery gallery={gallery} key={gallery.id} />
-//       )
-//     })
-//     return (
-//       <div> 
-//         <div className="container">
-//           <h1>Galleries</h1>
-//           <div id="galleries">
-//             <table className="table table-striped">
-//               <thead>
-//                 <tr>
-//                   <th>Name</th>
-//                   <th>Location</th>
-//                 </tr>
-//               </thead>
-//               <tbody>
-//                 { galleries }
-//               </tbody>
-//             </table>
-//           </div>
-//         </div>
-//       </div>
-//     )
-//   }
-// })

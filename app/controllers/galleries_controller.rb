@@ -10,20 +10,22 @@
   end
 
   def create
-    @gallery = Gallery.new(gallery_params)
-    @gallery.submitted_by = current_user
+    # raise params.inspect
+    @gallery = Gallery.create!(gallery_params)
+    # @gallery.submitted_by = current_user
     respond_to do |format|
       if @gallery.save
         # @gallery.images.last.update(user: current_user)
+    puts "================past photos================"
         format.html {redirect_to root_path}
-        # format.json { render :json => {:message => "Success"} }
-         format.json { render json: @gallery, each_serializer: GallerySerializer}
+        format.json { render json: @gallery, each_serializer: GallerySerializer }
       else
         format.html { render :new}
         format.json { render json: @gallery.errors, status: :unprocessable_entity }
 
       end
     end
+    puts params 
   end
 
   def add_tags

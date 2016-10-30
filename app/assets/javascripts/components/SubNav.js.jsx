@@ -1,7 +1,6 @@
 var SubNav = React.createClass({
   handleClick: function(e){
     e.preventDefault()
-    //move this swtich somewhre for all pages
     this.props.onDisplay(e.target.text)
     // switch(e.target.text){
     //   case 'All':
@@ -19,9 +18,6 @@ var SubNav = React.createClass({
       <ul className="sub-nav">
         <li onClick={this.handleClick}> <a href="#">All</a></li>
         <li onClick={this.handleClick}><a href="#">Add</a></li>
-        <li onClick={this.handleClick}><a href="#">Popular</a></li>
-        <li onClick={this.handleClick}><a href="#">Photos</a></li>
-        <li onClick={this.handleClick}><a href="#">Tags</a></li>
       </ul>
     )
   }
