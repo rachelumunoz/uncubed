@@ -4,7 +4,7 @@ var FormModal = React.createClass({
     e.preventDefault()
     $.ajax({
       method: 'post',
-      url: '/galleries',
+      url: '/api/v1/galleries',
       dataType: 'json',
       data: {gallery: {name: name.value, address: address.value}}
     }).done(function(res){
