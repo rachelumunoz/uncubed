@@ -1,7 +1,8 @@
 var SubNav = React.createClass({
   handleClick: function(e){
     e.preventDefault()
-    this.props.onDisplay(e.target.text)
+    console.log(e.target.text)
+    this.props.onSubNavClick(e.target.text)
     // switch(e.target.text){
     //   case 'All':
     //     console.log('render all galleries')

@@ -2,29 +2,32 @@ var Main = React.createClass({
   getInitialState: function(){
     return {
       galleryData: [],
-      onDisplay: 'all',
-      pageType: 'Galleries',
-      currentUser: this.props.currentUser
+      onDisplay: 'All',
+      pageType: 'Galleries'
+      // currentUser: this.props.currentUser
     }
   },
   showResults: function(response){
     this.setState({
             galleryData: response
         });
-    console.log(this.state.galleryData[0])
+    // console.log(this.state.galleryData[0])
   },
   componentDidMount: function() {
       this.loadData("/api/v1/galleries");
     },
   componentDidUpdate: function(prevProps, prevState){
-    if(this.state.pageType !== prevState.pageType){
-      switch(this.state.pageType){
-        case 'Galleries':
-          return this.mainDisplay('Galleries')
+    if(this.state.onDisplay !== prevState.onDisplay){
+      switch(this.state.onDisplay){
+        case 'All':
+          //want to show all galleries
+
+          console.log('all galleries from componenet did update')
           break
-        case 'Sign Out':
-          console.log('cdu')
-          return this.mainDisplay('Sign Out')
+        case 'Add':
+          //want to show form
+          console.log('add gallery form from component did update')
+
       }
     }
   },
@@ -39,13 +42,13 @@ var Main = React.createClass({
         }
       })
   },
-  renderPageType: function(type){
-    this.setState({
-      pageType: type
-    })
-    alert('wired up')
-  },
-  handleDisplay: function(type){
+  // renderPageType: function(type){
+  //   this.setState({
+  //     pageType: type
+  //   })
+  //   alert('wired up')
+  // },
+  handleSubNavDisplay: function(type){
     this.setState({
       onDisplay: type
     })
@@ -64,19 +67,15 @@ var Main = React.createClass({
   render: function(){
     var {galleryData, onDisplay, pageType} = this.state
 
-    // var mainDisplay = function(){
-      
-    //     // case 'Popular':
-    //     //   console.log('popular filter')
-    //     //   break
-    //     // case 'Photos':
-    //     //   console.log('photos')
-    //     //   break
-    //     // case 'Tags':
-    //     //   console.log('tags')
-    //     //   break
-    //   }
-    // }
+    var mainDisplay = function(){
+      switch(onDisplay){
+        case 'Add':
+          return <FormModal/>
+          break
+        default:
+          return renderGalleries()
+      }
+    }
     var renderGalleries = function(){
       return galleryData.map((gallery)=>{
         return (
@@ -86,17 +85,18 @@ var Main = React.createClass({
     }
     return(
       <div>
-        <div>  
+        {/*<div>  
           <Navbar renderPageType={this.renderPageType}currentUser={this.props.currentUser}/>
-        </div>
+        </div>*/}
          <div className="container">
           <div className="row">
             <div className="well text-center col-md-8 col-md-offset-2">
               <h1 className="h1">{this.state.pageType}</h1>
-              <SubNav onDisplay={this.handleDisplay}/>
+              <SubNav onSubNavClick={this.handleSubNavDisplay}/>
             </div>
             <div>
-              {/*mainDisplay()*/}
+              {mainDisplay()}
+              {/*renderGalleries()*/}
             </div>
           </div>
         </div>
