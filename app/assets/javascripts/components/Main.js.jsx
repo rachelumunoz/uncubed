@@ -7,6 +7,9 @@ var Main = React.createClass({
       currentUser: this.props.currentUser
     }
   },
+  // handleNavBarClick: function (e){
+  //   e.preventDefault()
+  // },
   render: function(){
     var {pageType} = this.state
     var renderPageType = function (){

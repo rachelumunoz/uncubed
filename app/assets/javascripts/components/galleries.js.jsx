@@ -93,7 +93,6 @@ var Galleries = React.createClass({
             </div>
             <div>
               {mainDisplay()}
-              <Profile/>
             </div>
           </div>
         </div>

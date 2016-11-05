@@ -16,13 +16,13 @@ gem 'react-rails', '~> 1.0'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'devise'
-gem "paperclip", "~> 5.0.0"
+# gem "paperclip", "~> 5.0.0"
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'font-awesome-sass', '~> 4.6.2'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'faker'
 gem 'active_model_serializers', '~> 0.10.0'
-
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
