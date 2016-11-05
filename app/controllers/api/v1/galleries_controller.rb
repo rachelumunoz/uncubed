@@ -5,19 +5,19 @@ class API::V1::GalleriesController < ApplicationController
   end
 
   def create
-    @gallery = Gallery.new(params[:gallery])
-    # @gallery.submitted_by = current_user
+    @gallery = Gallery.new(gallery_params)
+    @gallery.submitted_by = current_user
     if @gallery.save
-      puts "=========it saved==============="
+      render json: @gallery, each_serializer: GallerySerializer
     else
-
+      #need error rendering
+      render json: @gallery.errors, status: :unprocessable_entity
     end
-    puts params
   end
 
   private
 
   def gallery_params
-    params.require(:gallery).permit(:name, :address, :image)
-  end
+      params.require(:gallery).permit(:name, :address, :tags, {images: []})
+    end
 end

@@ -1,19 +1,21 @@
 .container
   .row
-    .well.text-center
+    .well.text-center.col-md-8.col-md-offset-2
       h1 #{current_user.username}'s page
-      = link_to "Edit", edit_user_path(@user)
-    .well.col-xs-12.col-sm-6.text-center
+      = react_component('UserSubNav')
+    .well.col-md-6.col-md-offset-3.text-center
       h3  Your gallery reviews
       - current_user.gallery_comments.each do |comment|
         p = comment.content
-    .well.col-xs-12.col-sm-6.text-center
-      h3 Your exhibition reviews
-      - current_user.exhibition_comments.each do |comment|
-        p = comment.content
-    .well.col-xs-12.col-sm-6.text-center
-      h3 Your images
-      - current_user.images.each do |image|
-        = image_tag(image.image_file_name)
-    .well.col-xs-12.col-sm-6.text-center
-      h3 Other stuff
+    / .well.col-xs-12.col-sm-6.text-center
+    /   h3 Your exhibition reviews
+    /   - current_user.exhibition_comments.each do |comment|
+    /     p = comment.content
+    / .well.col-xs-12.col-sm-6.text-center
+    /   h3 Your images
+    /   - current_user.images.each do |image|
+    /     = image_tag(image.image_file_name)
+    / .well.col-xs-12.col-sm-6.text-center
+    /   h3 Other stuff
+
+

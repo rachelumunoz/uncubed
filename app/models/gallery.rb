@@ -6,9 +6,8 @@ class Gallery < ApplicationRecord
  
   has_many :exhibitions
   has_many :comments, as: :commentable
-  has_many  :images
-  accepts_nested_attributes_for :images
-  
+  mount_uploaders :images, ImageUploader
+
   validates :name, :address, presence: true
   # , :user_id
   def upvotes 

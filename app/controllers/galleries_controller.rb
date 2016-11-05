@@ -10,13 +10,10 @@
   end
 
   def create
-    # raise params.inspect
-    @gallery = Gallery.create!(gallery_params)
-    # @gallery.submitted_by = current_user
+    @gallery = Gallery.new(gallery_params)
+    @gallery.submitted_by = current_user
     respond_to do |format|
       if @gallery.save
-        # @gallery.images.last.update(user: current_user)
-    puts "================past photos================"
         format.html {redirect_to root_path}
         format.json { render json: @gallery, each_serializer: GallerySerializer }
       else
@@ -25,7 +22,6 @@
 
       end
     end
-    puts params 
   end
 
   def add_tags
@@ -53,7 +49,7 @@
 
   private
     def gallery_params
-      params.require(:gallery).permit(:name, :address, :tags, images_attributes: :image)
+      params.require(:gallery).permit(:name, :address, :tags,  { images: [] })
     end
 
     def set_gallery
