@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'galleries#index'
+  root 'dashboard#index'
   devise_for :users
   resources :users, only: [:show, :edit, :update]
  

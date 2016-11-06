@@ -5,6 +5,7 @@ class API::V1::GalleriesController < ApplicationController
   end
 
   def create
+    # debugger
     @gallery = Gallery.new(gallery_params)
     @gallery.submitted_by = current_user
     if @gallery.save
@@ -16,8 +17,7 @@ class API::V1::GalleriesController < ApplicationController
   end
 
   private
-
   def gallery_params
-      params.require(:gallery).permit(:name, :address, :tags, {images: []})
-    end
+    params.require(:gallery).permit!
+  end
 end

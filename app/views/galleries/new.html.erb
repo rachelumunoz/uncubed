@@ -6,7 +6,7 @@
 /     = f.input :images, as: :file, multiple: true
 /     = f.submit  -->
 
-<%= form_for(@gallery) do |f| %>
+<%= form_for(@gallery, url: '/api/v1/galleries') do |f| %>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>

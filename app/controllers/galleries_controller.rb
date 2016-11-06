@@ -10,6 +10,7 @@
   end
 
   def create
+    # debugger
     @gallery = Gallery.new(gallery_params)
     @gallery.submitted_by = current_user
     respond_to do |format|

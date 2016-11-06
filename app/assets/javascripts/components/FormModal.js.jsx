@@ -2,25 +2,29 @@ var FormModal = React.createClass({
   handleSubmit: function(e){
     var {name, address, image, file} = this.refs
     e.preventDefault()
-    console.log(file)
-    // var formData = new FormData()
-    var $form = $('#form')
-    var formData = new FormData($form)
-    // formDatax.append('gallery', $input[0].files[0])
-    console.log(formData)
-    // $.ajax({
-    //   method: 'post',
-    //   url: '/api/v1/galleries',
-    //   dataType: 'json',
-    //   data: $input,
-    //   processData: false
-    //   // data: {gallery: {name: name.value, address: address.value}}
+    var formData = new FormData()
+    formData.append('file', file.files[0])
+    // ReactDOM.findDOMNode(
+    $.ajax({
+      method: 'post',
+      url: 'galleries',
+      dataType: 'json',
+      // data: {gallery: {name: name.value, address: address.value }},
+      data: { 
+        "gallery": { 
+          "name": name.value, 
+          "address": address.value
+        }
+      },
 
-    // }).done(function(res){
-    //   console.log(res)
-    // }).fail(function(err){
-    //   console.log(err)
-    // })
+      cache: false,
+      // contentType: false,
+      processData: false
+    }).done(function(res){
+      console.log(res)
+    }).fail(function(err){
+      console.log(err)
+    })
 
     this.refs.address.value = ""
     this.refs.name.value = ""
