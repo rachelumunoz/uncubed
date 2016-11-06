@@ -1,5 +1,5 @@
-# WhiteCube
+# Uncubed
 
-The WhiteCube is a living archive for contemporary art.
+Uncubed is a living archive for contemporary art.
 
 
