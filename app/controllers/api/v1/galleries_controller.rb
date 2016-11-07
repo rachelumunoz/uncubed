@@ -17,7 +17,7 @@ class API::V1::GalleriesController < ApplicationController
   end
 
   private
-  def gallery_params
-    params.require(:gallery).permit!
-  end
+    def gallery_params
+      params.require(:gallery).permit(:name, :address, :tags,  { images: [] })
+    end
 end
