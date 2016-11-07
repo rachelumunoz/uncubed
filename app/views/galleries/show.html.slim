@@ -4,7 +4,6 @@
       h1 = @gallery.name
       h5 = @gallery.address
       = link_to "Add a Review | ", new_gallery_comment_path(@gallery), id: "add-review"
-      a href="#" Add Image | 
       = link_to "Add an exhibition", new_gallery_exhibition_path(@gallery)
     div class="well col-xs-12 col-sm-6 text-center"
       h4 Reviews
@@ -19,7 +18,11 @@
   .row
     div class="well col-xs-12 col-sm-6 text-center"
       h4 Images
-      
+      - @gallery.images.each do |image|
+        p = image_tag(image, class: "image")
+      = simple_form_for @gallery, url: api_v1_images_path(@gallery), method: :post do |f|
+        = f.input :images, as: :file, multiple: true
+        = f.button :submit, "Add image"
     div class="well col-xs-12 col-sm-6 text-center"
       h4 Tags
       = simple_form_for @gallery, :url => url_for(controller: 'galleries', action: 'add_tags') do |f|
