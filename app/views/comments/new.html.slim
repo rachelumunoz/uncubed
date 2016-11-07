@@ -1,6 +1,7 @@
-h1 Add a Review
+.well.text-center id="new-review-form"
+  h1 Add a Review
 
-= simple_form_for([@commentable, @comment]) do |f|
-  = f.text_field :content
-  = f.submit
+  = simple_form_for([@commentable, @comment]) do |f|
+    = f.text_field :content
+    = f.submit class: "btn"
 
