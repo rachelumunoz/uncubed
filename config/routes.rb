@@ -7,11 +7,12 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :index, :new, :show]
   end
 
-  resources :galleries, only: [:new, :create, :index, :show], shallow: true do
+  resources :galleries, only: [:new, :create, :index, :show, :update], shallow: true do
       member do
         get "like", to: "galleries#upvote"
         get "dislike", to: "galleries#downvote"
         patch "add_tags", to: "galleries#add_tags"
+        patch "add_images", to: "galleries#add_images"
       end
       concerns :commentable
       resources :exhibitions, only: [:new, :create, :show, :index] do
@@ -28,6 +29,7 @@ resources :images, only: [:new, :index, :create]
   namespace :api, constraints: {format: :json} do
     namespace :v1 do
       resources :galleries, only: [:index, :create]
+        resources :images, only: [:create, :destroy]
     end
   end
 end

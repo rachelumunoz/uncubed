@@ -1,5 +1,5 @@
  class GalleriesController < ApplicationController
-    before_action :set_gallery, only: [:show, :upvote, :downvote, :update, :add_tags]
+    before_action :set_gallery, only: [:show, :upvote, :downvote, :update, :add_tags, :add_images]
   def index
     @galleries = Gallery.all
     # render component: 'Galleries', props: { galleries: @galleries }
@@ -27,6 +27,15 @@
         format.json { render json: @gallery.errors, status: :unprocessable_entity }
 
       end
+    end
+  end
+
+  def add_images
+    @gallery.images << params[:gallery][:images]
+    if @gallery.save
+      redirect_back fallback_location:  { action: "show", id: @gallery.id }
+    else
+       flash.now[:alert] =  @gallery.errors.full_messages
     end
   end
 
