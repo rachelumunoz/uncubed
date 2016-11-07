@@ -1,15 +1,17 @@
 .container
   .row
-    div class="well text-center col-md-8 col-md-offset-2"
+    div class="well text-center col-md-8 col-md-offset-2 page-heading"
       h1 Galleries
       ul class="sub-nav text-center"
-        li = link_to "All", "#"
-        li = link_to "Add", "#"
-      
-    - @galleries.each do |gallery|
-      div class="well col-md-4 col-md-offset-4 text-center" 
-        h3 = link_to gallery.name, gallery_path(gallery)
-        h5 = gallery.address
-        h6 #{link_to "Like", like_gallery_path(gallery)} #{gallery.get_upvotes.size} #{link_to "Dislike", dislike_gallery_path(gallery)} #{gallery.get_downvotes.size}
+        li = link_to "All", "#", id: "all" 
+        li = link_to "Add", "#", id: "add-gallery", remote: true
+    
+    .amebius id="this-is-it"
+      - @galleries.each do |gallery|
+        div class="well col-md-4 col-md-offset-4 text-center" 
+          h3 = link_to gallery.name, gallery_path(gallery)
+          h5 = gallery.address
+          h6 #{link_to "Like", like_gallery_path(gallery)} #{gallery.get_upvotes.size} #{link_to "Dislike", dislike_gallery_path(gallery)} #{gallery.get_downvotes.size}
+
 
 / react_component('Main', {currentUser: current_user }, {prerender: true}) 

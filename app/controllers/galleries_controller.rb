@@ -7,6 +7,11 @@
 
   def new
     @gallery = Gallery.new
+    respond_to do |format|
+      format.js {render '_new', layout: false} 
+      format.html
+    end
+
   end
 
   def create
