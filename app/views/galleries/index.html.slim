@@ -6,7 +6,7 @@
         li = link_to "All", "#", id: "all" 
         li = link_to "Add", "#", id: "add-gallery", remote: true
     
-    .amebius id="this-is-it"
+    .content id="new-content"
       - @galleries.each do |gallery|
         div class="well col-md-4 col-md-offset-4 text-center" 
           h3 = link_to gallery.name, gallery_path(gallery)

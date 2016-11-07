@@ -8,7 +8,7 @@
       url: 'galleries/new',
       dataType: 'text'
     }).done(function(res){
-      $('#this-is-it').html(res)
+      $('#new-content').html(res)
     }).error(function(err){
       console.log('error', err)
     })
