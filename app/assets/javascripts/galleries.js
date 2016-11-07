@@ -10,6 +10,7 @@
     }).done(function(res){
       $('#new-content').html(res)
     }).error(function(err){
+      //do error things
       console.log('error', err)
     })
   })
@@ -18,15 +19,16 @@
     e.preventDefault()
 
     var url = $(this).attr('href')
+    
     $.ajax({url: url, dataType: 'text'})
     .done(function(res){
-      console.log($('#new-review-form').length)
       if($('#new-review-form').length === 0){
         var form = $(res).insertAfter('#page-heading')
       }
       
       $('#new-review-form').toggle()
     }).error(function(err){
+      //do error things
       console.log('error', err)
     })
   })

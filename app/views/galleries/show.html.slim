@@ -19,7 +19,8 @@
   .row
     div class="well col-xs-12 col-sm-6 text-center"
       h4 Images
-      
+      - @gallery.images.each do |image|
+        p = image_tag(image, class: "image")
     div class="well col-xs-12 col-sm-6 text-center"
       h4 Tags
       = simple_form_for @gallery, :url => url_for(controller: 'galleries', action: 'add_tags') do |f|
