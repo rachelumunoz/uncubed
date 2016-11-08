@@ -19,8 +19,8 @@
     div class="well col-xs-12 col-sm-6 text-center"
       h4 Images
       - @gallery.images.each do |image|
-        p = image_tag(image, class: "image")
-      = simple_form_for @gallery, url: api_v1_images_path(@gallery), method: :post do |f|
+        p = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{image.path}", class: "image")
+      = simple_form_for @gallery, url: api_v1_gallery_images_path(@gallery), method: :post do |f|
         = f.input :images, as: :file, multiple: true
         = f.button :submit, "Add image"
     div class="well col-xs-12 col-sm-6 text-center"

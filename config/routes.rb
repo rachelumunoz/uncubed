@@ -24,12 +24,12 @@ Rails.application.routes.draw do
     end
   end
 
-resources :images, only: [:new, :index, :create]
   
   namespace :api, constraints: {format: :json} do
     namespace :v1 do
-      resources :galleries, only: [:index, :create]
+      resources :galleries, only: [:index, :create], shallow: true do
         resources :images, only: [:create, :destroy]
+      end
     end
   end
 end

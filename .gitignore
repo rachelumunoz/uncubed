@@ -16,6 +16,6 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-public/uploads/gallery/
+public/uploads/tmp/
 
 /config/local_env.yml

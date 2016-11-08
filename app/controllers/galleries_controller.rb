@@ -30,15 +30,6 @@
     end
   end
 
-  def add_images
-    @gallery.images << params[:gallery][:images]
-    if @gallery.save
-      redirect_back fallback_location:  { action: "show", id: @gallery.id }
-    else
-       flash.now[:alert] =  @gallery.errors.full_messages
-    end
-  end
-
   def add_tags
     @gallery.tag_list.add(params[:gallery][:tag_list])
     if @gallery.save
