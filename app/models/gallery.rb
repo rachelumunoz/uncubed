@@ -7,6 +7,7 @@ class Gallery < ApplicationRecord
   has_many :exhibitions
   has_many :comments, as: :commentable
   mount_uploaders :images, ImageUploader
+  # has_many :images
 
   validates :name, :address, presence: true
   # , :user_id

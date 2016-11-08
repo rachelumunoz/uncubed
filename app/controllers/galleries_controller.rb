@@ -1,5 +1,6 @@
  class GalleriesController < ApplicationController
     before_action :set_gallery, only: [:show, :upvote, :downvote, :update, :add_tags, :add_images]
+  
   def index
     @galleries = Gallery.all
     # render component: 'Galleries', props: { galleries: @galleries }
