@@ -1,5 +1,5 @@
 class API::V1::CommentsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :upvote, :downvote]
   before_action :load_commentable
 
   def index
@@ -25,11 +25,15 @@ class API::V1::CommentsController < ApplicationController
     end
   end
 
-  # def upvote
-  # end
+  def upvote
+    @commentable.upvote_by current_user
+    redirect_to :back
+  end
 
-  # def downvote
-  # end
+  def downvote
+    @commentable.downvote_by current_user
+    redirect_to :back
+  end
 
   private
   def load_commentable

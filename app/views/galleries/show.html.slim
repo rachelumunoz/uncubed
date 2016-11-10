@@ -10,6 +10,12 @@
       - @comments.each do |comment|
         p = comment.content
         p = comment.user.username
+        p = link_to "Like", like_api_v1_comment_path(comment)
+        p = comment.get_upvotes.size
+        p = link_to "Dislike", dislike_api_v1_comment_path(comment)
+        p = comment.get_downvotes.size
+
+
     div class="well col-xs-12 col-sm-6 text-center"
       h4 Exhibitions
       - @gallery.exhibitions.each do |exh|
