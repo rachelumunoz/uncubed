@@ -45,15 +45,6 @@
     @comment = Comment.new
   end
 
-  def upvote
-    @gallery.upvote_by current_user
-    redirect_to :back
-  end
-  def downvote
-    @gallery.downvote_by current_user
-    redirect_to :back
-  end
-
   private
     def gallery_params
       params.require(:gallery).permit(:name, :address, :tags,  { images: [] })

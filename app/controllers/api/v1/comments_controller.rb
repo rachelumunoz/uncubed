@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class API::V1::CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :load_commentable
 
@@ -25,16 +25,21 @@ class CommentsController < ApplicationController
     end
   end
 
-  private
+  # def upvote
+  # end
 
+  # def downvote
+  # end
+
+  private
   def load_commentable
-    puts "====================================================="
-    puts request.path
-    resource, id = request.path.split('/')[1,2]
+    # byebug
+    resource, id = request.path.split('/')[3,4]
     @commentable = resource.singularize.classify.constantize.find(id)
   end
 
   def comment_params
     params.require(:comment).permit(:content)
   end
+
 end

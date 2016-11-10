@@ -3,8 +3,8 @@
     div class="well text-center" id="page-heading"
       h1 = @gallery.name
       h5 = @gallery.address
-      = link_to "Add a Review | ", new_gallery_comment_path(@gallery), id: "add-review"
-      = link_to "Add an exhibition", new_gallery_exhibition_path(@gallery)
+      = link_to "Add a Review | ", new_api_v1_gallery_comment_path(@gallery), id: "add-review"
+      | link_to "Add an exhibition", new_gallery_exhibition_path(@gallery)
     div class="well col-xs-12 col-sm-6 text-center"
       h4 Reviews
       - @comments.each do |comment|

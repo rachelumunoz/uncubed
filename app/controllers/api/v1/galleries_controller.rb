@@ -1,4 +1,6 @@
 class API::V1::GalleriesController < ApplicationController
+  before_action :set_gallery, only: [:upvote, :downvote]
+
   def index
     @galleries = Gallery.all
     render json: @galleries, each_serializer: GallerySerializer
@@ -15,8 +17,21 @@ class API::V1::GalleriesController < ApplicationController
     end
   end
 
+  def upvote
+    @gallery.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @gallery.downvote_by current_user
+    redirect_to :back
+  end
+
   private
     def gallery_params
       params.require(:gallery).permit(:name, :address, :tags,  { images: [] })
+    end
+    def set_gallery
+      @gallery = Gallery.find(params[:id])
     end
 end
