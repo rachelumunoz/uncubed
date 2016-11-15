@@ -21,14 +21,14 @@ Rails.application.routes.draw do
         patch "add_tags", to: "galleries#add_tags"
         patch "add_images", to: "galleries#add_images"
       end
-      concerns :commentable
+      # concerns :commentable
       
-      # resources :exhibitions, only: [:new, :create, :show, :index] do
-      #   member do
-      #     get "like", to: "exhibitions#upvote"
-      #     get "dislike", to: "exhibitions#downvote"
-      #   end
-      #   concerns :commentable 
+    #   resources :exhibitions, only: [:new, :create, :show, :index] do
+    #     member do
+    #       get "like", to: "exhibitions#upvote"
+    #       get "dislike", to: "exhibitions#downvote"
+    #     end
+    #     concerns :commentable 
     # end
   end
 
@@ -42,7 +42,8 @@ Rails.application.routes.draw do
           get "like", to: "galleries#upvote"
           get "dislike", to: "galleries#downvote"
         end
-        concerns :commentable 
+        concerns :commentable
+        resources :exhibitions, only: [:new, :create, :show, :index] 
       end
     end
   end
