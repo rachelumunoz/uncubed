@@ -1,3 +1,11 @@
 h1 {
   font-size: 50px;
 }
+
+#main {
+  position: absolute;
+  top: 175px;
+  left: 50px;
+  @include outer-container(100%);
+  margin: 20px;
+}

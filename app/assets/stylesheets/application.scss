@@ -12,11 +12,30 @@
  *
 
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "normalize-rails";
+@import "neat";
 
 // components
+@import 'header';
+@import 'navbar';
 @import 'galleries';
 @import 'dashboard';
+
+// major stuffs
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, 
+body {
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
