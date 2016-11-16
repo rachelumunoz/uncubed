@@ -12,6 +12,6 @@ class Gallery < ApplicationRecord
   validates :name, :address, presence: true
   # , :user_id
   def upvotes 
-    self.get_upvotes.size
+    self.get_upvotes.size - (self.get_downvotes.size)
   end
 end

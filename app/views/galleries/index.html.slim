@@ -5,6 +5,7 @@
     li = link_to "Add", "#", id: "add-gallery", remote: true
     
 section class="section-galleries" id="all"
+  .poop
   - @galleries.each do |gallery|
     div class="gallery-info" 
       .gallery-votes
@@ -13,7 +14,7 @@ section class="section-galleries" id="all"
         p =  gallery.upvotes
         p = link_to dislike_api_v1_gallery_path(gallery) do
           i class="fa fa-arrow-down" aria-hidden="true" 
-      h3 = link_to gallery.name, gallery_path(gallery), class: "gallery-name"
-      p = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{gallery.images.first.path}", class: "gallery-image")
+      h3 class="gallery-name" = link_to gallery.name, gallery_path(gallery)
+      p class="gallery-image" = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{gallery.images.first.path}")
 
 / react_component('Main', {currentUser: current_user }, {prerender: true}) 
