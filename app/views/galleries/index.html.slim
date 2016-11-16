@@ -1,15 +1,19 @@
 .container id="main-galleries"
   h1 Galleries
-  ul 
-    li  = link_to "All", "#all", id: "all" 
+  ul class="sub-nav-galleries"
+    li  = link_to "All", "#all"
     li = link_to "Add", "#", id: "add-gallery", remote: true
     
-section class="section-galleries"
+section class="section-galleries" id="all"
   - @galleries.each do |gallery|
-    div class="gallery-info" id="all" 
-      h3 = link_to gallery.name, gallery_path(gallery)
-      h5 = gallery.address
-      h6 #{link_to "Like", like_api_v1_gallery_path(gallery)} #{gallery.get_upvotes.size} #{link_to "Dislike", dislike_api_v1_gallery_path(gallery)} #{gallery.get_downvotes.size}
-
+    div class="gallery-info" 
+      .gallery-votes
+        p = link_to like_api_v1_gallery_path(gallery) do
+          i class="fa fa-arrow-up" aria-hidden="true"  
+        p =  gallery.upvotes
+        p = link_to dislike_api_v1_gallery_path(gallery) do
+          i class="fa fa-arrow-down" aria-hidden="true" 
+      h3 = link_to gallery.name, gallery_path(gallery), class: "gallery-name"
+      p = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{gallery.images.first.path}", class: "gallery-image")
 
 / react_component('Main', {currentUser: current_user }, {prerender: true}) 
