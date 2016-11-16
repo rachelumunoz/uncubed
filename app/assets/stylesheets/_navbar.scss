@@ -1,0 +1,32 @@
+nav {
+  // margin: 0 15px;
+  padding: 35px;
+}
+
+.main-nav {
+  float: right;
+  
+  li {
+    display: inline-block;
+    padding: 10px;
+
+    a:visited,
+    a:link {
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    a:hover,
+    a:active {
+      border-bottom: 2px solid #000;
+    }
+  }
+
+}
+
+.fa-cube {
+  font-size: 300%;
+  
+  // margin: 15px;
+}

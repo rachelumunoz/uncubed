@@ -6,8 +6,8 @@ ruby '2.2.2'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
-# gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
+gem 'normalize-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
@@ -23,8 +23,7 @@ gem 'faker'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
-# gem "fog-aws"
-
+gem 'neat'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
