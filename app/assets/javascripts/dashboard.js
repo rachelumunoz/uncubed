@@ -1,5 +1,7 @@
-// $( document ).on('turbolinks:load', function() {
-    
+$( document ).on('turbolinks:load', function() {
+    if !($('header')){
+      $('header').removeClass('hide')
+    }
 //     const pages = (type)=>{
 //       switch(type){
 //         case 'Galleries':
@@ -18,4 +20,4 @@
 //       e.preventDefault()
 //       pages(e.target.innerHTML)
 //     })
-// })
+})

@@ -24,6 +24,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
 gem 'neat'
+gem 'webpack-rails'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
@@ -44,3 +45,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :test do
   gem 'capybara'
 end
+
+gem 'foreman'

@@ -2,10 +2,13 @@ h1 {
   font-size: 50px;
 }
 
-#main {
+#main,
+#main-galleries {
   position: absolute;
   top: 175px;
   left: 50px;
   @include outer-container(100%);
   margin: 20px;
 }
+
+ 
