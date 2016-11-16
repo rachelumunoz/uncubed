@@ -25,6 +25,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
 gem 'neat'
 gem 'webpack-rails'
+gem "figaro"
 gem 'rails_12factor', group: :production
 
 group :development, :test do
