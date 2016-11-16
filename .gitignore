@@ -18,4 +18,6 @@
 
 public/uploads/tmp/
 
-/config/local_env.yml
+/config/local_env.yml# Added by webpack-rails
+/node_modules
+/public/webpack

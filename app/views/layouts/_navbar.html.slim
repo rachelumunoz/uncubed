@@ -1,8 +1,8 @@
-header
+header id="nav-header"
   nav
     = link_to root_path do 
         i class="fa fa-cube" aria-hidden="true"
-    ul class="main-nav"
+    ul class="main-nav clearfix"
       li = link_to "Galleries", galleries_path
       - if current_user
         li = link_to "Profile", user_path(current_user)
