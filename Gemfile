@@ -24,7 +24,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
 gem 'neat'
-gem 'webpack-rails'
+# gem 'webpack-rails'
 gem "figaro"
 gem 'rails_12factor', group: :production
 
