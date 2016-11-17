@@ -1,22 +1,20 @@
-<div class="well col-md-4 col-md-offset-4 text-center">
-  <%= form_for(@gallery, url: '/api/v1/galleries') do |f| %>
-    <div class="form-group row">
-      <%= f.label :name, class: "col-form-label" %>
-      <%= f.text_field :name %>
-    </div>
+<%= form_for(@gallery, url: '/api/v1/galleries') do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
 
-    <div class="form-group row">
-      <%= f.label :address, class: "col-form-label" %>
-      <%= f.text_field :address %>
-    </div>
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
 
-    <div class="form-group row text-center">
-      <%= f.label :images, class: "col-form-label" %>
-      <%= f.file_field :images, multiple: true %>
-    </div>
+  <div class="field">
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true%>
+  </div>
 
-    <div class="form-group row">
-      <%= f.submit class: :btn %>
-    </div>
-  <% end %>
-</div>
+  <div class="actions">
+    <%= f.submit class: :button%>
+  </div>
+<% end %>
