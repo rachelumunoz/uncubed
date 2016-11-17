@@ -5,7 +5,8 @@ nav {
 
 .main-nav {
   float: right;
-  
+  @include clearfix();
+
   li {
     display: inline-block;
     padding: 10px;
@@ -13,7 +14,7 @@ nav {
     a:visited,
     a:link {
       text-decoration: none;
-      color: #fff;
+      color: $base-color;
       text-transform: uppercase;
     }
 
@@ -27,5 +28,6 @@ nav {
 
 .fa-cube {
   font-size: 300%;
+  color: $base-color;
   // margin: 15px;
 }

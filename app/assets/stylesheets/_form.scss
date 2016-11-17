@@ -1,0 +1,22 @@
+form {
+    padding: 25px;
+    // background-color: red;
+    width: 50%;
+    margin: 0 auto 10px auto;
+    border: 1px solid $base-color;
+    border-radius: 5px;
+
+    label {
+      float: left;
+    }
+
+    input[type=text],
+    input[type=file] {
+      text-align: center;
+      padding: 5px;
+      margin: 5px;
+      width: 70%;
+    }
+    
+  *:focus {outline: none;}
+}

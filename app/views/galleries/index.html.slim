@@ -1,11 +1,11 @@
-.container id="main-galleries"
+= render :partial => 'layouts/navbar'
+section class="section-galleries"
   h1 Galleries
   ul class="sub-nav-galleries"
     li  = link_to "All", "#all"
-    li = link_to "Add", "#", id: "add-gallery", remote: true
+    li = link_to "Add", "#new-gallery", id: "add-gallery", remote: true
     
-section class="section-galleries" id="all"
-  .poop
+    div id="new-content"
   - @galleries.each do |gallery|
     div class="gallery-info" 
       .gallery-votes

@@ -1,22 +1,21 @@
  $( document ).on('turbolinks:load', function() {
-
-
-
-
-  // $('#add-gallery').on('click', function(e){
-  //   e.preventDefault()
+  
+  $('#add-gallery').on('click', function(e){
+    e.preventDefault()
     
-  //   $.ajax({
-  //     method: 'get',
-  //     url: 'galleries/new',
-  //     dataType: 'text'
-  //   }).done(function(res){
-  //     $('#new-content').html(res)
-  //   }).error(function(err){
-  //     //do error things
-  //     console.log('error', err)
-  //   })
-  // })
+    $.ajax({
+      method: 'get',
+      url: 'galleries/new',
+      dataType: 'text'
+    }).done(function(res){
+      $('#new-content').html(res)
+    }).error(function(err){
+      //do error things
+      console.log('error', err)
+    })
+
+    $('#new-content').toggle()
+  })
 
   // $('#add-review').on('click', function(e){
   //   e.preventDefault()

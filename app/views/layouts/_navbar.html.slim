@@ -1,14 +1,10 @@
-header id="nav-header"
-  nav
-    = link_to root_path do 
-        i class="fa fa-cube" aria-hidden="true"
-    ul class="main-nav clearfix"
-      li = link_to "Galleries", galleries_path
-      - if current_user
-        li = link_to "Profile", user_path(current_user)
-        li = link_to "Sign out", "#"
-      - else
-        li = link_to "sign in", new_user_session_path
-        li sign up
-      
-
+nav = link_to root_path do 
+  i class="fa fa-cube" aria-hidden="true"
+  ul class="main-nav"
+    li = link_to "Galleries", galleries_path
+    - if current_user
+      li = link_to "Profile", user_path(current_user)
+      li = link_to "Sign out", "#"
+    - else
+      li = link_to "sign in", new_user_session_path
+      li sign up
