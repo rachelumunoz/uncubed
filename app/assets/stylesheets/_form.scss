@@ -6,10 +6,10 @@ form {
     border: 1px solid $base-color;
     border-radius: 5px;
 
-    label {
-      float: left;
+    input {
+      margin: 0;
     }
-
+    
     input[type=text],
     input[type=file] {
       text-align: center;

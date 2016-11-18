@@ -31,7 +31,7 @@
   overflow: hidden;
   border: 1px solid $base-color;
   border-radius: 5px;
-  @include outer-container(50%);
+  @include outer-container(45%);
   
   .gallery-image {
     @include span-columns(3);
@@ -51,3 +51,4 @@
     @include span-columns(4);
   }
 }
+

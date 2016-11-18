@@ -4,7 +4,7 @@ section class="section-galleries"
   ul class="sub-nav-galleries"
     li  = link_to "All", "#all"
     li = link_to "Add", "#new-gallery", id: "add-gallery", remote: true
-    
+  .modal 
     div id="new-content"
   - @galleries.each do |gallery|
     div class="gallery-info" 
