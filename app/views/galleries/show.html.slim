@@ -1,36 +1,40 @@
 = render :partial => 'layouts/navbar'
 section class="section-galleries-show"
-  .header
+  .title
     h1 = @gallery.name
-    h5 = @gallery.address
-    = link_to "Add a Review | ", new_api_v1_gallery_comment_path(@gallery), id: "add-review"
-    | link_to "Add an exhibition", new_gallery_exhibition_path(@gallery)
-  div class="reviews"
-    h4 Reviews
-    - @comments.each do |comment|
-      p = comment.content
-      p = comment.user.username
-      = link_to "Like", like_api_v1_comment_path(comment) 
-      = comment.get_upvotes.size 
-      = link_to "Dislike", dislike_api_v1_comment_path(comment)
-      = comment.get_downvotes.size
+    
+    .sub-nav
+      ul.sub-nav
+        li = link_to "Add a Review", new_api_v1_gallery_comment_path(@gallery), id: "add-review"
+  
+  .gallery-content    
+    div.reviews
+      h4 Reviews
+      - @comments.each do |comment|
+        p = comment.content
+        p = comment.user.username
+        p = link_to like_api_v1_gallery_path(comment) do
+          i class="fa fa-arrow-up" aria-hidden="true"  
+        p = comment.upvotes
+        p = link_to dislike_api_v1_comment_path(comment) do
+          i class="fa fa-arrow-down" aria-hidden="true" 
 
 
-  div class="exhibitions"
-    h4 Exhibitions
-    - @gallery.exhibitions.each do |exh|
-      p = exh.title
-      p = exh.artist
-  .row
-  div class="images"
-    h4 Images
-    - @gallery.images.each do |image|
-      p = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{image.path}", class: "image")
-    = simple_form_for @gallery, url: api_v1_gallery_images_path(@gallery), method: :post do |f|
-      = f.input :images, as: :file, multiple: true
-      = f.button :submit, "Add image"
-  div class="well col-xs-12 col-sm-6 text-center"
-    h4 Tags
-    = simple_form_for @gallery, :url => url_for(controller: 'galleries', action: 'add_tags') do |f|
-      = f.input :tag_list
-      = f.button :submit, "Add tag"
+    / div.exhibitions
+    /   h4 Exhibitions
+    /   - @gallery.exhibitions.each do |exh|
+    /     p = exh.title
+    /     p = exh.artist
+    div.images
+      h4 Images
+      - @gallery.images.each do |image|
+        p = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{image.path}", class: "image")
+    div.add-image
+      = simple_form_for @gallery, url: api_v1_gallery_images_path(@gallery), method: :post do |f|
+        = f.input :images, as: :file, multiple: true
+        = f.button :submit, "Add image"
+    div.tags
+      h4 Tags
+      = simple_form_for @gallery, :url => url_for(controller: 'galleries', action: 'add_tags') do |f|
+        = f.input :tag_list
+        = f.button :submit, "Add tag"

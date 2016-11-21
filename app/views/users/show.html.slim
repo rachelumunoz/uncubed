@@ -1,7 +1,16 @@
 = render :partial => 'layouts/navbar'
 section class="section-profile"
-  h1 #{current_user.username}'s page
-  h3  Your gallery reviews
-  - current_user.gallery_comments.each do |comment|
-    p = link_to comment.content, "#"
-    
+  div.title
+    h1 #{current_user.username}'s page
+    div.sub-nav-users
+      ul class="sub-nav-users"
+        li = link_to "Edit Profile", "#"
+  div.user-content
+    .gallery-reviews
+      h3  Your gallery reviews
+      - current_user.gallery_comments.each do |comment|
+        p = link_to comment.content, "#"
+    .submitted-images
+      h3 Your submitted images
+    .submitted-galleries
+      h3 Your submitted galleries

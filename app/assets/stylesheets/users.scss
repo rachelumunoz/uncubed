@@ -1,20 +1,38 @@
 .section-profile {
-  // @include clearfix();
   margin: 0 auto;
   text-align: center;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  .title {
+    h1 {
+      float: left;
+      margin-left: 200px;
+      margin-bottom: 75px;
+      margin-top: 50px;
+    }
+  }
+  @include clearfix();
 }
 
 
-
-.sub-nav {
-  li {
-    display: inline;
-    a {
-      padding: 1rem .5rem;
+.sub-nav-users {
+  margin-right: 125px;
+  margin-top: 30px;
+  ul{
+    float: right;
+    li {
+      @include clearfix();
+      display: inline-block;
+      padding: 15px;
     }
   }
-  ul {
-    list-style: none;
-  }
+  @include clearfix()
+
+}
+
+.user-content{
+  background-color: tint($bg-color, 85%);
+  margin: 0 25px;
+  height: 50vh;
 }

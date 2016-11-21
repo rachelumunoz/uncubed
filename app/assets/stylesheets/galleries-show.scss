@@ -1,20 +1,67 @@
 .section-galleries-show {
-  // @include clearfix();
   margin: 0 auto;
   text-align: center;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  .title {
+    h1 {
+      float: left;
+      margin-left: 200px;
+      margin-bottom: 75px;
+      margin-top: 50px;
+    }
+  }
+
+  @include clearfix()
 }
 
-.header {
-  padding: 10px;
-  margin-bottom: 10px;
+
+.sub-nav {
+  margin-right: 125px;
+  margin-top: 30px;
+  ul{
+    float: right;
+    li {
+      @include clearfix();
+      display: inline-block;
+      padding: 15px;
+    }
+  }
+  @include clearfix()
 }
+
+.gallery-content {
+  background-color: tint($bg-color, 85%);
+  margin: 0 25px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  justify-content: center;
+  align-items: stretch;
+  .reviews{
+    margin: 15px;
+  }
+
+  .images {
+    margin: 15px;
+    
+  }
+
+  .add-image{
+    margin: 15px;
+  }
+
+  .tags{
+  }
+}
+// .header {
+//   padding: 10px;
+//   margin-bottom: 10px;
+// }
 
 img {
   height: 100px;
   width: auto;
-}
-
-.reviews{
-
 }

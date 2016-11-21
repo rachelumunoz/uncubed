@@ -4,4 +4,8 @@ class Comment < ApplicationRecord
   
   acts_as_votable
   validates :content, presence: true
+
+  def upvotes 
+    self.get_upvotes.size - (self.get_downvotes.size)
+  end
 end
