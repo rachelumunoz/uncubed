@@ -17,12 +17,14 @@
 @import "font-awesome";
 @import "normalize-rails";
 @import "neat";
+@import "bourbon";
 
 // components
 @import 'variables';
 @import 'header';
 @import 'navbar';
-@import 'galleries';
+@import 'galleries-index';
+@import 'galleries-show';
 @import 'dashboard';
 @import 'form';
 @import 'users';
@@ -42,7 +44,7 @@ body {
     font-weight: 300;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
-    background-color: #ecf0f1;
+    background-color: tint($bg-color, 55%);
 }
 
 h1 {

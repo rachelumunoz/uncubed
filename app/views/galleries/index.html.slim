@@ -1,20 +1,22 @@
 = render :partial => 'layouts/navbar'
 section class="section-galleries"
-  h1 Galleries
-  ul class="sub-nav-galleries"
-    li  = link_to "All", "#all"
-    li = link_to "Add", "#new-gallery", id: "add-gallery", remote: true
-  .modal 
-    div id="new-content"
-  - @galleries.each do |gallery|
-    div class="gallery-info" 
-      .gallery-votes
-        p = link_to like_api_v1_gallery_path(gallery) do
-          i class="fa fa-arrow-up" aria-hidden="true"  
-        p =  gallery.upvotes
-        p = link_to dislike_api_v1_gallery_path(gallery) do
-          i class="fa fa-arrow-down" aria-hidden="true" 
-      h3 class="gallery-name" = link_to gallery.name, gallery_path(gallery)
-      p class="gallery-image" = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{gallery.images.first.path}")
+  div.title
+    h1 Galleries
+    div.sub-nav-galleries
+      ul class="sub-nav-galleries"
+        li  = link_to "All", "#all"
+        li = link_to "Add", "#new-gallery", id: "add-gallery", remote: true
+      / div id="new-content"
+  div.gallery-info
+    - @galleries.each do |gallery|
+      div class="indiv-gallery" 
+        .gallery-votes
+          p = link_to like_api_v1_gallery_path(gallery) do
+            i class="fa fa-arrow-up" aria-hidden="true"  
+          p =  gallery.upvotes
+          p = link_to dislike_api_v1_gallery_path(gallery) do
+            i class="fa fa-arrow-down" aria-hidden="true" 
+        h3 class="gallery-name" = link_to gallery.name, gallery_path(gallery)
+        p class="gallery-image" = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{gallery.images.first.path}")
 
 / react_component('Main', {currentUser: current_user }, {prerender: true}) 

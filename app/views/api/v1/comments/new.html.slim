@@ -1,6 +1,5 @@
-.well.text-center id="new-review-form"
+.new-form id="new-review-form"
   h1 Add a Review
-
-  = simple_form_for([@commentable, @comment], url: new_api_v1_gallery_comment_path(@comment)) do |f|
+  = simple_form_for([@commentable, @comment], url:  api_v1_gallery_comments_path(@commentable)) do |f|
     = f.text_field :content
     = f.submit class: "btn"
