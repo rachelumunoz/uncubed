@@ -36,12 +36,27 @@
   margin: 0 25px;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap; 
   justify-content: center;
   align-items: stretch;
+  h4 {
+    margin-left: -1000px;
+    margin-top: 30px;
+  }
+
   .reviews{
     margin: 15px;
+    .upvote {
+      // float: left;
+    }
+    .count {
+      // float: left;
+    }
+    .downvote{
+      // float: left;
+    }
+    // @include clearfix()
   }
 
   .images {

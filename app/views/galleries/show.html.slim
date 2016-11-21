@@ -8,16 +8,19 @@ section class="section-galleries-show"
         li = link_to "Add a Review", new_api_v1_gallery_comment_path(@gallery), id: "add-review"
   
   .gallery-content    
-    div.reviews
+    .reviews
       h4 Reviews
       - @comments.each do |comment|
         p = comment.content
         p = comment.user.username
-        p = link_to like_api_v1_gallery_path(comment) do
-          i class="fa fa-arrow-up" aria-hidden="true"  
-        p = comment.upvotes
-        p = link_to dislike_api_v1_comment_path(comment) do
-          i class="fa fa-arrow-down" aria-hidden="true" 
+        .upvote
+          p = link_to like_api_v1_gallery_path(comment) do
+            i class="fa fa-arrow-up" aria-hidden="true"  
+        .count
+          p = comment.upvotes
+        .downvote
+          p = link_to dislike_api_v1_comment_path(comment) do
+            i class="fa fa-arrow-down" aria-hidden="true" 
 
 
     / div.exhibitions
