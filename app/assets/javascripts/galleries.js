@@ -1,8 +1,8 @@
  $( document ).on('turbolinks:load', function() {
   
-  $('#add-gallery').on('click', function(e){
+  $('body').on('click', '#add-gallery', function(e){
     e.preventDefault()
-    
+    var that = $(this)
     $.ajax({
       method: 'get',
       url: 'galleries/new',
@@ -13,10 +13,15 @@
       //do error things
       console.log('error', err)
     })
-
     $('#new-content').toggle()
   })
 
+
+      
+  $('body').on('submit', '#galleries-form', function(e){
+    e.preventDefault()
+    console.log('form submitted')
+  })
   // $('#add-review').on('click', function(e){
   //   e.preventDefault()
 

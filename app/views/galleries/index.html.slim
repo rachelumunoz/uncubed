@@ -5,8 +5,8 @@ section class="section-galleries"
     div.sub-nav-galleries
       ul class="sub-nav-galleries"
         li  = link_to "All", "#all"
-        li = link_to "Add", "#new-gallery", id: "add-gallery", remote: true
-      / div id="new-content"
+        li = link_to "Add", "#", id: "add-gallery"
+  div id="new-content"
   div.gallery-info
     - @galleries.each do |gallery|
       div class="indiv-gallery" 

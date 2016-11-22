@@ -45,18 +45,18 @@
     margin-top: 30px;
   }
 
-  .reviews{
+  .reviews-votes{
     margin: 15px;
-    .upvote {
-      // float: left;
+    // display: flex;
+    // flex-direction: row;
+    .votes {
+
     }
-    .count {
-      // float: left;
+
+    .reviews {
+      
     }
-    .downvote{
-      // float: left;
-    }
-    // @include clearfix()
+
   }
 
   .images {
@@ -71,10 +71,10 @@
   .tags{
   }
 }
-// .header {
-//   padding: 10px;
-//   margin-bottom: 10px;
-// }
+
+.vote {
+
+}
 
 img {
   height: 100px;

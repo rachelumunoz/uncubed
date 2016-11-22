@@ -1,4 +1,4 @@
-<%= form_for(@gallery, url: '/api/v1/galleries') do |f| %>
+<%= form_for(@gallery, url: '/api/v1/galleries', id: "galleries-form") do |f| %>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>

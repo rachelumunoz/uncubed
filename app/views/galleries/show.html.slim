@@ -8,21 +8,10 @@ section class="section-galleries-show"
         li = link_to "Add a Review", new_api_v1_gallery_comment_path(@gallery), id: "add-review"
   
   .gallery-content    
-    .reviews
+    .reviews-votes
       h4 Reviews
       - @comments.each do |comment|
-        p = comment.content
-        p = comment.user.username
-        .upvote
-          p = link_to like_api_v1_gallery_path(comment) do
-            i class="fa fa-arrow-up" aria-hidden="true"  
-        .count
-          p = comment.upvotes
-        .downvote
-          p = link_to dislike_api_v1_comment_path(comment) do
-            i class="fa fa-arrow-down" aria-hidden="true" 
-
-
+        = render :partial => 'comments/show', locals: {comment: comment} 
     / div.exhibitions
     /   h4 Exhibitions
     /   - @gallery.exhibitions.each do |exh|
@@ -34,7 +23,7 @@ section class="section-galleries-show"
         p = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{image.path}", class: "image")
     div.add-image
       = simple_form_for @gallery, url: api_v1_gallery_images_path(@gallery), method: :post do |f|
-        = f.input :images, as: :file, multiple: true
+        = f.input :images, as: :file, multiple: true, class: "add-images"
         = f.button :submit, "Add image"
     div.tags
       h4 Tags
