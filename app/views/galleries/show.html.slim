@@ -6,7 +6,8 @@ section class="section-galleries-show"
     .sub-nav
       ul.sub-nav
         li = link_to "Add a Review", new_api_v1_gallery_comment_path(@gallery), id: "add-review"
-  
+        li = link_to "Add Image", "#", id: "add-image"
+  .new-content
   .gallery-content    
     .reviews-votes
       h4 Reviews
@@ -21,10 +22,8 @@ section class="section-galleries-show"
       h4 Images
       - @gallery.images.each do |image|
         p = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{image.path}", class: "image")
-    div.add-image
-      = simple_form_for @gallery, url: api_v1_gallery_images_path(@gallery), method: :post do |f|
-        = f.input :images, as: :file, multiple: true, class: "add-images"
-        = f.button :submit, "Add image"
+    div class="add-image hidden"
+      = render :partial => 'shared/add_image', locals: {gallery: @gallery}
     div.tags
       h4 Tags
       = simple_form_for @gallery, :url => url_for(controller: 'galleries', action: 'add_tags') do |f|

@@ -42,25 +42,41 @@
   align-items: stretch;
   h4 {
     margin-left: -1000px;
-    margin-top: 30px;
+    // margin-top: 30px;
   }
 
   .reviews-votes{
     margin: 15px;
+    // padding: 50px;
     // display: flex;
-    // flex-direction: row;
+    // justify-content: space-between;
+    // align-items: center;
+    // border: 1px solid black;
     .votes {
+      // border: 2px solid blue;
+      float: left;
+      margin-left: 80px;
 
     }
 
     .reviews {
+      // border: 2px dashed red;
+      height: 150px;
       
     }
+    @include clearfix()
 
   }
 
   .images {
     margin: 15px;
+    height: 175px;
+    img {
+      float: left;
+      margin-right: 25px;
+      margin-left: 150px;
+      margin-top: 25px;
+    }
     
   }
 
