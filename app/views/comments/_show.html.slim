@@ -1,6 +1,6 @@
 .votes
   .upvote
-    p = link_to like_api_v1_gallery_path(comment) do
+    p = link_to like_api_v1_comment_path(comment) do
       i class="fa fa-arrow-up" aria-hidden="true"  
   .count
     p = comment.upvotes

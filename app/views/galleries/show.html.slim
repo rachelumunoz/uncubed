@@ -24,8 +24,8 @@ section class="section-galleries-show"
         p = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{image.path}", class: "image")
     div class="add-image hidden"
       = render :partial => 'shared/add_image', locals: {gallery: @gallery}
-    div.tags
-      h4 Tags
-      = simple_form_for @gallery, :url => url_for(controller: 'galleries', action: 'add_tags') do |f|
-        = f.input :tag_list
-        = f.button :submit, "Add tag"
+    / div.tags
+    /   h4 Tags
+    /   / simple_form_for @gallery, :url => url_for(controller: 'galleries', action: 'add_tags') do |f|
+    /     = f.input :tag_list
+    /     = f.button :submit, "Add tag"
