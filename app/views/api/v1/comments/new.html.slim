@@ -1,5 +1,6 @@
-.new-form id="new-review-form"
-  h1 Add a Review
+.title
+  / h3 Add a Review
+.form 
   = simple_form_for([@commentable, @comment], url:  api_v1_gallery_comments_path(@commentable)) do |f|
-    = f.text_field :content
+    = f.text_area :content
     = f.submit class: "btn"

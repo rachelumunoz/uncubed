@@ -24,11 +24,30 @@
     var imageForm = $('.add-image')
 
     if (imageForm.hasClass('hidden')){
-      $('.add-image').removeClass('hidden')
+      imageForm.removeClass('hidden')
     }else{
-      $('.add-image').addClass('hidden')
+      imageForm.addClass('hidden')
     }
   })
 
+  $('body').on('click', '#add-review', function(e){
+    e.preventDefault()
+    // alert('review clicked')
+    var url = $(this).attr('href')
+    console.log(url)
+    $.ajax({
+      method: 'get',
+      url: url,
+      dataType: 'text'
+    }).done(function(res){
+      $('.new-content .add-review').html(res)
+    }).error(function(err){
+      //do error things
+      console.log('error', err)
+    })
+    $('.new-content .add-review').toggle()
 
+
+
+  })
 })

@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comments = @commentable.comments
   end
 
+ 
   def new
     @comment = @commentable.comments.new
     respond_to do |format|
