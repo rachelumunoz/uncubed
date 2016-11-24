@@ -1,4 +1,7 @@
-h1 Edit!
+= render :partial => 'layouts/navbar'
+section class="section-edit-profile"
+  div.title
+    h3 edit #{current_user.username}'s page
 
 = simple_form_for(@user) do |f|
   = f.input :username
