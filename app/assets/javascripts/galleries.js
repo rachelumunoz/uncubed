@@ -1,12 +1,12 @@
  $( document ).on('turbolinks:load', function() {
   
-  //form for adding a gallery
+  //get form for adding a gallery
   $('body').on('click', '#add-gallery', function(e){
     e.preventDefault()
     var that = $(this)
     $.ajax({
       method: 'get',
-      url: 'galleries/new',
+      url: '/galleries/new',
       dataType: 'text'
     }).done(function(res){
       $('#new-content').html(res)
@@ -17,6 +17,16 @@
     $('#new-content').toggle()
   })
    
+  //submit gallery
+  $('body').on('submit', '#new-gallery', function(e){
+    e.preventDefault()
+    alert('submit')
+
+
+
+  })
+
+
 
   //form for adding images    
   $('body').on('click', '#add-image', function(e){
@@ -30,9 +40,9 @@
     }
   })
 
+  // add review to gallery
   $('body').on('click', '#add-review', function(e){
     e.preventDefault()
-    // alert('review clicked')
     var url = $(this).attr('href')
     console.log(url)
     $.ajax({

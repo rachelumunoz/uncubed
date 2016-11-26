@@ -17,6 +17,8 @@ section class="section-galleries"
           p = link_to dislike_api_v1_gallery_path(gallery) do
             i class="fa fa-arrow-down" aria-hidden="true" 
         h3 class="gallery-name" = link_to gallery.name, gallery_path(gallery)
-        p class="gallery-image" = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{gallery.images.first.path}")
+        - if gallery.images.length > 0
+          p class="gallery-image" = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{gallery.images.first.path}")
+        
 
 / react_component('Main', {currentUser: current_user }, {prerender: true}) 

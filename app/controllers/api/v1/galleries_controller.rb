@@ -7,6 +7,7 @@ class API::V1::GalleriesController < ApplicationController
   end
 
   def create
+    # byebug
     @gallery = Gallery.new(gallery_params)
     @gallery.submitted_by = current_user
     if @gallery.save
