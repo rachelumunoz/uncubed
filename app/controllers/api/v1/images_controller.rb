@@ -4,7 +4,10 @@ class API::V1::ImagesController < ApplicationController
   def create
     add_more_images(images_params[:images])
     # multiple gallery only saves if try to save, but then spits out error
-    flash[:error] = "Failed uploading images" unless @resource.save
+    # flash[:error] = "Failed uploading images" unless @resource.save
+    if @resource.save
+      redirect_to root_path
+    end
   end
   
 
@@ -24,8 +27,9 @@ class API::V1::ImagesController < ApplicationController
 
   def add_more_images(new_images)
     images = @resource.images # copy the old images 
+    @resource.images = nil
     images.push(new_images) # concat old images with new ones
     @resource.images = images # concat old images with new ones
-    # byebug
   end
+
 end
