@@ -6,7 +6,7 @@ class API::V1::ImagesController < ApplicationController
     # multiple gallery only saves if try to save, but then spits out error
     # flash[:error] = "Failed uploading images" unless @resource.save
     if @resource.save
-      redirect_to root_path
+      redirect_to @resource
     end
   end
   
