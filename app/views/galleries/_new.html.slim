@@ -1,4 +1,4 @@
-= simple_form_for @gallery, url: api_v1_galleries_path, method: :post do |f|
+= simple_form_for @gallery, url: api_v1_galleries_path, html: {id: :new_gallery_form, method: :post } do |f|
   = f.label :name
   = f.text_field :name
 

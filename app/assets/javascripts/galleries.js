@@ -18,11 +18,22 @@
   })
    
   //submit gallery
-  $('body').on('submit', '#new-gallery', function(e){
+  $('body').on('submit', '#new_gallery_form', function(e){
     e.preventDefault()
-    alert('submit')
-
-
+    var form = $(this)
+    var url = form.attr('action')
+    var data = form.serialize()
+    $.ajax({
+      method: 'post',
+      url: url,
+      data: data,
+      dataType: 'json'
+    }).done(function(res){
+      console.log(res)
+      form.trigger('reset')
+    }).error(function(err){
+      console.log('error', err)
+    })
 
   })
 
