@@ -24,7 +24,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
 gem 'neat'
-gem "bourbon"
+gem 'bourbon'
 # gem 'webpack-rails'
 gem "figaro"
 gem 'rails_12factor', group: :production
@@ -48,4 +48,4 @@ group :test do
   gem 'capybara'
 end
 
-gem 'foreman'
+# gem 'foreman'

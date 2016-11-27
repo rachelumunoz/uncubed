@@ -7,13 +7,12 @@ class API::V1::GalleriesController < ApplicationController
   end
 
   def create
-    # byebug
     @gallery = Gallery.new(gallery_params)
+    byebug
     @gallery.submitted_by = current_user
     if @gallery.save
       render json: @gallery, each_serializer: GallerySerializer
     else
-      #need error rendering
       render json: @gallery.errors, status: :unprocessable_entity
     end
   end
@@ -30,7 +29,7 @@ class API::V1::GalleriesController < ApplicationController
 
   private
     def gallery_params
-      params.require(:gallery).permit(:name, :address, :tags,  { images: [] })
+      params.require(:gallery).permit(:name, :address, :tags, :images)
     end
     def set_gallery
       @gallery = Gallery.find(params[:id])

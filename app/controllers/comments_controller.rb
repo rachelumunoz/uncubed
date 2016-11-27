@@ -15,6 +15,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def upvote
+    
+  end
+
+  def downvote
+
+  end
+
   def create
     @comment = @commentable.comments.new(comment_params)
     @comment.user = current_user

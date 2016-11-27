@@ -1,9 +1,9 @@
-.votes
+div class="votes gallery-votes"
   .upvote
     p = link_to like_api_v1_comment_path(comment) do
       i class="fa fa-arrow-up" aria-hidden="true"  
   .count
-    p = comment.upvotes
+    p.votes-count = comment.upvotes
   .downvote
     p = link_to dislike_api_v1_comment_path(comment) do
       i class="fa fa-arrow-down" aria-hidden="true" 

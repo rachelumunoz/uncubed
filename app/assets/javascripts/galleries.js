@@ -28,11 +28,13 @@
       url: url,
       data: data,
       dataType: 'json'
-    }).done(function(res){
+    })
+    .done(function(res){
       console.log(res)
       form.trigger('reset')
       $('#new-content').toggle()
-    }).error(function(err){
+    })
+    .error(function(err){
       console.log('error', err)
     })
 
@@ -50,6 +52,20 @@
     }
   })
 
+  //get add review form
+  $('body').on('click', '#add-review', function(e){
+    e.preventDefault()
+    var url = $(this).attr('href')
+    $.ajax({url: url, dataType: 'text'})
+    .done(function(res){
+      $('.new-content .add-review').html(res)
+    }).error(function(err){
+      //do error things
+      console.log('error', err)
+    })
+    $('.new-content .add-review').toggle()
+  })
+
   // add review to gallery
   $('body').on('click', '#add-review', function(e){
     e.preventDefault()
@@ -59,27 +75,27 @@
       method: 'post',
       url: url,
       dataType: 'text'
-    }).done(function(res){
+    })
+    .done(function(res){
       $('.new-content .add-review').html(res)
-    }).error(function(err){
+    })
+    .error(function(err){
       //do error things
       console.log('error', err)
     })
-    $('.new-content .add-review').toggle()
   })
 
-  //upvote
+
+  //upvote & downvote
   $('body').on('click', '.gallery-votes a', function(e){
     e.preventDefault()
-    var gallery = $(this)
+    var arrowClicked = $(this)
     
-    var url = $(this).attr('href')
-    $.ajax({
-      method: 'post',
-      url: url
-    }).done(function(res){
-      console.log(res)
-      var votePlace = gallery.closest('.gallery-votes').find('.votes-count')
+    var url = arrowClicked.attr('href')
+    $.ajax({ method: 'post', url: url })
+    .done(function(res){
+      // alert(res.votes)
+      var votePlace = arrowClicked.closest('.gallery-votes').find('.votes-count')
       $(votePlace).html(res.votes)
     })
 

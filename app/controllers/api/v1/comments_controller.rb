@@ -27,12 +27,12 @@ class API::V1::CommentsController < ApplicationController
 
   def upvote
     @commentable.upvote_by current_user
-    redirect_to :back
+    render json: @commentable, each_serializer: CommentSerializer
   end
 
   def downvote
     @commentable.downvote_by current_user
-    redirect_to :back
+    render json: @commentable, each_serializer: CommentSerializer
   end
 
   private

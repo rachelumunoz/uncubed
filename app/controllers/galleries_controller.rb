@@ -31,14 +31,14 @@
     end
   end
 
-  def add_tags
-    @gallery.tag_list.add(params[:gallery][:tag_list])
-    if @gallery.save
-      redirect_back fallback_location:  { action: "show", id: @gallery.id }
-    else
-       flash.now[:alert] =  @gallery.errors.full_messages
-    end
-  end
+  # def add_tags
+  #   @gallery.tag_list.add(params[:gallery][:tag_list])
+  #   if @gallery.save
+  #     redirect_back fallback_location:  { action: "show", id: @gallery.id }
+  #   else
+  #      flash.now[:alert] =  @gallery.errors.full_messages
+  #   end
+  # end
 
   def show
     @comments = @gallery.comments.order(created_at: :desc).limit(2)

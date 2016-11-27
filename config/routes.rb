@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   concern :commentable do
     resources :comments, only: [:create, :index, :new, :show] do 
       member do
-        get "like", to: "comments#upvote"
-        get "dislike", to: "comments#downvote"
+        post "like", to: "comments#upvote"
+        post "dislike", to: "comments#downvote"
       end
     end
   end
