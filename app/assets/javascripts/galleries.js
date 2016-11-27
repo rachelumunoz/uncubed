@@ -71,13 +71,16 @@
   //upvote
   $('body').on('click', '.gallery-votes a', function(e){
     e.preventDefault()
+    var gallery = $(this)
+    
     var url = $(this).attr('href')
     $.ajax({
       method: 'post',
       url: url
     }).done(function(res){
       console.log(res)
-      $('#votes-count').html(res.votes)
+      var votePlace = gallery.closest('.gallery-votes').find('.votes-count')
+      $(votePlace).html(res.votes)
     })
 
   })

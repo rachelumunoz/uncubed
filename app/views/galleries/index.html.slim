@@ -13,7 +13,7 @@ section class="section-galleries"
         .gallery-votes
           p = link_to like_api_v1_gallery_path(gallery) do
             i class="fa fa-arrow-up" aria-hidden="true"  
-          p id="votes-count" =  gallery.upvotes
+          p.votes-count =  gallery.upvotes
           p = link_to dislike_api_v1_gallery_path(gallery) do
             i class="fa fa-arrow-down" aria-hidden="true" 
         h3 class="gallery-name" = link_to gallery.name, gallery_path(gallery)
