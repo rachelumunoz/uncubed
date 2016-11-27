@@ -39,8 +39,8 @@ Rails.application.routes.draw do
       resources :galleries, only: [:new, :index, :create], shallow: true do
         resources :images, only: [:create, :destroy]
         member do
-          get "like", to: "galleries#upvote"
-          get "dislike", to: "galleries#downvote"
+          post "like", to: "galleries#upvote"
+          post "dislike", to: "galleries#downvote"
         end
         concerns :commentable
         resources :exhibitions, only: [:new, :create, :show, :index] 

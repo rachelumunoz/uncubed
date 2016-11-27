@@ -20,12 +20,12 @@ class API::V1::GalleriesController < ApplicationController
 
   def upvote
     @gallery.upvote_by current_user
-    redirect_to :back
+    render json: @gallery, each_serializer: GallerySerializer
   end
 
   def downvote
     @gallery.downvote_by current_user
-    redirect_to :back
+    render json: @gallery, each_serializer: GallerySerializer
   end
 
   private

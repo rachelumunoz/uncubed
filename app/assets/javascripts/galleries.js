@@ -18,7 +18,6 @@
   })
    
   //submit gallery
-
   $('body').on('submit', '#new_gallery_form', function(e){
     e.preventDefault()
     var form = $(this)
@@ -39,8 +38,6 @@
 
   })
 
-
-
   //form for adding images    
   $('body').on('click', '#add-image', function(e){
     e.preventDefault()
@@ -59,7 +56,7 @@
     var url = $(this).attr('href')
     console.log(url)
     $.ajax({
-      method: 'get',
+      method: 'post',
       url: url,
       dataType: 'text'
     }).done(function(res){
@@ -69,8 +66,21 @@
       console.log('error', err)
     })
     $('.new-content .add-review').toggle()
+  })
 
-
+  //upvote
+  $('body').on('click', '.gallery-votes a', function(e){
+    e.preventDefault()
+    var url = $(this).attr('href')
+    $.ajax({
+      method: 'post',
+      url: url
+    }).done(function(res){
+      console.log(res)
+      $('#votes-count').html(res.votes)
+    })
 
   })
+
+
 })
