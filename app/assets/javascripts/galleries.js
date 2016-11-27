@@ -18,7 +18,7 @@
   })
    
   //submit gallery
-<<<<<<< HEAD
+
   $('body').on('submit', '#new_gallery_form', function(e){
     e.preventDefault()
     var form = $(this)
@@ -32,16 +32,10 @@
     }).done(function(res){
       console.log(res)
       form.trigger('reset')
+      $('#new-content').toggle()
     }).error(function(err){
       console.log('error', err)
     })
-=======
-  $('body').on('submit', '#new-gallery', function(e){
-    e.preventDefault()
-    alert('submit')
-
-
->>>>>>> df7985623fb3470b9e385d96ca1dfbe0638dac44
 
   })
 
