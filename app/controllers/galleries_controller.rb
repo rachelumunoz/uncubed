@@ -19,15 +19,10 @@
     # debugger
     @gallery = Gallery.new(gallery_params)
     @gallery.submitted_by = current_user
-    respond_to do |format|
-      if @gallery.save
-        format.html {redirect_to root_path}
-        format.json { render json: @gallery, each_serializer: GallerySerializer }
-      else
-        format.html { render :new}
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
-
-      end
+    if @gallery.save
+      render json: @gallery, each_serializer: GallerySerializer
+    else
+      render json: @gallery.errors, status: :unprocessable_entity
     end
   end
 

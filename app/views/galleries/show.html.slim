@@ -4,7 +4,7 @@ section class="section-galleries-show"
     h1 = @gallery.name
     .sub-nav
       ul.sub-nav
-        li = link_to "Add a Review", new_api_v1_gallery_comment_path(@gallery), id: "add-review"
+        li = link_to "Add a Review", new_gallery_comment_path(@gallery), id: "add-review"
         li = link_to "Add Image", "#", id: "add-image"
   .new-content
     div class="add-image hidden"

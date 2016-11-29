@@ -13,24 +13,24 @@ Rails.application.routes.draw do
     end
   end
   
-  namespace :api, constraints: {format: :json} do
-    namespace :v1 do
-      resources :galleries, only: [:new, :index, :create], shallow: true do
-        resources :images, only: [:create, :destroy]
-        member do
-          post "like", to: "galleries#upvote"
-          post "dislike", to: "galleries#downvote"
-        end
-        concerns :commentable
-        # resources :exhibitions, only: [:new, :create, :show, :index] 
-      end
-    end
-  end
+  # namespace :api, constraints: {format: :json} do
+  #   namespace :v1 do
+  #     resources :galleries, only: [:new, :index, :create], shallow: true do
+  #       resources :images, only: [:create, :destroy]
+  #       member do
+  #         post "like", to: "galleries#upvote"
+  #         post "dislike", to: "galleries#downvote"
+  #       end
+  #       concerns :commentable
+  #       # resources :exhibitions, only: [:new, :create, :show, :index] 
+  #     end
+  #   end
+  # end
 
 
   resources :galleries, only: [:new, :create, :index, :show, :update], shallow: true do
+      resources :images, only: [:create, :destroy]
       member do
-        resources :images, only: [:create, :destroy]
         post "like", to: "galleries#upvote"
         post "dislike", to: "galleries#downvote"
       end
