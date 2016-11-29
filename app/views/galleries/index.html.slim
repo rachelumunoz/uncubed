@@ -11,10 +11,10 @@ section class="section-galleries"
     - @galleries.each do |gallery|
       div class="indiv-gallery" 
         .gallery-votes
-          p = link_to like_api_v1_gallery_path(gallery) do
+          p = link_to like_gallery_path(gallery) do
             i class="fa fa-arrow-up" aria-hidden="true"  
           p.votes-count =  gallery.upvotes
-          p = link_to dislike_api_v1_gallery_path(gallery) do
+          p = link_to dislike_gallery_path(gallery) do
             i class="fa fa-arrow-down" aria-hidden="true" 
         h3 class="gallery-name" = link_to gallery.name, gallery_path(gallery)
         - if gallery.images.length > 0

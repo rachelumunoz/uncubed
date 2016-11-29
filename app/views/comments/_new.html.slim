@@ -1,4 +1,5 @@
 .form 
   = simple_form_for([@commentable, @comment], url:  api_v1_gallery_comments_path(@commentable)) do |f|
     = f.text_field :content
-    = f.submit class: "btn"
+    = f.button :submit, "Add Review"
+

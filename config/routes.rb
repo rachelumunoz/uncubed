@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root 'dashboard#index'
   
   devise_for :users
-  
   resources :users, only: [:show, :edit, :update]
  
   concern :commentable do
@@ -13,27 +12,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  resources :galleries, only: [:new, :create, :index, :show, :update], shallow: true do
-      member do
-        # get "like", to: "galleries#upvote"
-        # get "dislike", to: "galleries#downvote"
-        patch "add_tags", to: "galleries#add_tags"
-        patch "add_images", to: "galleries#add_images"
-      end
-      # concerns :commentable
-      
-    #   resources :exhibitions, only: [:new, :create, :show, :index] do
-    #     member do
-    #       get "like", to: "exhibitions#upvote"
-    #       get "dislike", to: "exhibitions#downvote"
-    #     end
-    #     concerns :commentable 
-    # end
-  end
-
-  #what about page rerendering for upvote/downvote, should ajax?
-
+  
   namespace :api, constraints: {format: :json} do
     namespace :v1 do
       resources :galleries, only: [:new, :index, :create], shallow: true do
@@ -43,8 +22,31 @@ Rails.application.routes.draw do
           post "dislike", to: "galleries#downvote"
         end
         concerns :commentable
-        resources :exhibitions, only: [:new, :create, :show, :index] 
+        # resources :exhibitions, only: [:new, :create, :show, :index] 
       end
     end
   end
+
+
+  resources :galleries, only: [:new, :create, :index, :show, :update], shallow: true do
+      member do
+        resources :images, only: [:create, :destroy]
+        post "like", to: "galleries#upvote"
+        post "dislike", to: "galleries#downvote"
+      end
+      concerns :commentable
+    end
+        
+        # patch "add_tags", to: "galleries#add_tags"
+        # patch "add_images", to: "galleries#add_images"
+      # concerns :commentable
+      
+    #   resources :exhibitions, only: [:new, :create, :show, :index] do
+    #     member do
+    #       get "like", to: "exhibitions#upvote"
+    #       get "dislike", to: "exhibitions#downvote"
+    #     end
+    #     concerns :commentable 
+    # end
+
 end

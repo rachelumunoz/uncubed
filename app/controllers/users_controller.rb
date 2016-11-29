@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   end
 
+
   private
     def check_authorization
       unless current_user.id == params[:id].to_i

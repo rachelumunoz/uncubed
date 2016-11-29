@@ -8,7 +8,6 @@ class API::V1::GalleriesController < ApplicationController
 
   def create
     @gallery = Gallery.new(gallery_params)
-    byebug
     @gallery.submitted_by = current_user
     if @gallery.save
       render json: @gallery, each_serializer: GallerySerializer
@@ -29,8 +28,9 @@ class API::V1::GalleriesController < ApplicationController
 
   private
     def gallery_params
-      params.require(:gallery).permit(:name, :address, :tags, :images)
+      params.require(:gallery).permit(:name, :address, {images: []})
     end
+
     def set_gallery
       @gallery = Gallery.find(params[:id])
     end

@@ -2,7 +2,7 @@
     before_action :set_gallery, only: [:show, :upvote, :downvote, :update, :add_tags, :add_images]
   
   def index
-    @galleries = Gallery.all
+    @galleries = Gallery.last(5)
     # render component: 'Galleries', props: { galleries: @galleries }
   end
 
@@ -44,7 +44,17 @@
     @comments = @gallery.comments.order(created_at: :desc).limit(2)
     @comment = Comment.new
   end
+  
+  def upvote
+    @gallery.upvote_by current_user
+    render json: @gallery, each_serializer: GallerySerializer
+  end
 
+  def downvote
+    @gallery.downvote_by current_user
+    render json: @gallery, each_serializer: GallerySerializer
+  end
+  
   private
     def gallery_params
       params.require(:gallery).permit(:name, :address, :tags,  { images: [] })
