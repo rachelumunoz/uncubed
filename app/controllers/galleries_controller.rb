@@ -16,9 +16,9 @@
   end
 
   def create
-    # debugger
     @gallery = Gallery.new(gallery_params)
     @gallery.submitted_by = current_user
+    byebug
     if @gallery.save
       render json: @gallery, each_serializer: GallerySerializer
     else
@@ -52,7 +52,7 @@
   
   private
     def gallery_params
-      params.require(:gallery).permit(:name, :address, :tags,  { images: [] })
+      params.require(:gallery).permit!
     end
 
     def set_gallery

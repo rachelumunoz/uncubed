@@ -2,7 +2,12 @@ class ImagesController < ApplicationController
   before_action :load_resource
 
   def create
-    add_more_images(images_params[:images])
+    byebug
+    if @resource.images.length <= 0
+      @resource.images = images_params
+    else
+      add_more_images(images_params[:images])
+    end
     # multiple gallery only saves if try to save, but then spits out error
     # flash[:error] = "Failed uploading images" unless @resource.save
     if @resource.save

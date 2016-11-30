@@ -6,7 +6,8 @@
   = f.label :address
   = f.text_field :address
 
-  = f.input :images, as: :file, multiple: true, class: "add-images"
+  = f.input :images, as: :file, multiple: true, class: "add-images", name: "gallery[images]"
+   / f.file_field :images, multiple: true, class: "add-images", name: "gallery[images]"
  
   = f.submit
 
