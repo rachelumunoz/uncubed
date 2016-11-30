@@ -12,13 +12,12 @@
       format.js {render '_new', layout: false} 
       format.html
     end
-
   end
 
   def create
+    # byebug
     @gallery = Gallery.new(gallery_params)
     @gallery.submitted_by = current_user
-    byebug
     if @gallery.save
       render json: @gallery, each_serializer: GallerySerializer
     else
@@ -52,7 +51,8 @@
   
   private
     def gallery_params
-      params.require(:gallery).permit!
+      # params[:gallery][:images] ||= []
+      params.require(:gallery).permit(:name, :address, :images)
     end
 
     def set_gallery

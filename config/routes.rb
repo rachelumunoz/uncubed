@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
 
   resources :galleries, only: [:new, :create, :index, :show, :update], shallow: true do
-      resources :images, only: [:create, :destroy]
+      resources :images, only: [:create, :destroy, :index]
       member do
         post "like", to: "galleries#upvote"
         post "dislike", to: "galleries#downvote"

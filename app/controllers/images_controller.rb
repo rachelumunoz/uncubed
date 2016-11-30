@@ -1,14 +1,15 @@
 class ImagesController < ApplicationController
   before_action :load_resource
 
+  def index
+   @images = @resource.images
+  end
+
   def create
-    byebug
-    if @resource.images.length <= 0
-      @resource.images = images_params
-    else
-      add_more_images(images_params[:images])
-    end
-    # multiple gallery only saves if try to save, but then spits out error
+    # byebug
+    
+    # error if gallery didn't have images before adding
+    add_images(images_params[:images])
     # flash[:error] = "Failed uploading images" unless @resource.save
     if @resource.save
       redirect_to @resource
@@ -31,7 +32,7 @@ class ImagesController < ApplicationController
     params.require(params_name).permit(:images)
   end
 
-  def add_more_images(new_images)
+  def add_images(new_images)
     images = @resource.images # copy the old images 
     @resource.images = nil
     images.push(new_images) # concat old images with new ones
