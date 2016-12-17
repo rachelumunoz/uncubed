@@ -1,5 +1,9 @@
  class GalleriesController < ApplicationController
     before_action :set_gallery, only: [:show, :upvote, :downvote, :update, :add_tags, :add_images]
+     before_action :authenticate_user!, only: [:new, :create]
+  before_action :check_authorization, only: [:new, :create]
+
+
   
   def index
     @galleries = Gallery.last(5)

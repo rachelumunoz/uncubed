@@ -1,6 +1,7 @@
 = render :partial => 'layouts/navbar'
-
-<h2>Sign up</h2>
+section.section-sign-up 
+  .title
+    h1 Sign up
 
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| 
   = f.error_notification 
@@ -17,4 +18,3 @@
   </div>
 
 
-= render "devise/shared/links" 

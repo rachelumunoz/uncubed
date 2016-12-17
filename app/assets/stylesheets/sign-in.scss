@@ -1,0 +1,29 @@
+section {
+  .title {
+    h1 {
+      float: left;
+      margin-left: 200px;
+      margin-bottom: 75px;
+      margin-top: 50px;
+    }
+  }
+  @include clearfix()
+}
+
+.sub-nav-sign-in {
+  // margin-right: 125px;
+  // margin-top: 30px;
+  float: right;
+  ul{
+    margin-top: 70px;
+    margin-right: 250px;
+    list-style: none;
+    li {
+      @include clearfix();
+      display: inline-block;
+      // padding: 15px;
+    }
+  }
+  // @include clearfix()
+
+}
