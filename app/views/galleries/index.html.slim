@@ -7,6 +7,8 @@ section class="section-galleries"
         li  = link_to "All", "#all"
         li = link_to "Add", "#", id: "add-gallery"
   div id="new-content"
+  div id="error-msg" class="hidden"
+    | error message
   div.gallery-info
     - @galleries.each do |gallery|
       div class="indiv-gallery" 

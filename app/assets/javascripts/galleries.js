@@ -11,8 +11,10 @@
     }).done(function(res){
       $('#new-content').html(res)
     }).error(function(err){
-      //do error things
-      console.log('error', err)
+      // alert(err.responseText)
+      console.log('error', err.responseText)
+      $('#error-msg').removeClass('hidden')
+      $('#error-msg').html(err.responseText)
     })
     $('#new-content').toggle()
   })

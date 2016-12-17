@@ -1,0 +1,16 @@
+section {
+  // position: relative;
+  display: flex;  
+
+}
+
+#error-msg{
+  font-size: 24px;
+  color: white;
+  padding: 20px;
+  position: absolute;
+  align-self: center;
+  background-color: tint($base-color, 55%);
+  height: 250px;
+  border: $base-color solid 1px;
+}

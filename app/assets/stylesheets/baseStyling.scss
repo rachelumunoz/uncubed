@@ -33,7 +33,10 @@ ul {
     list-style: none;
 }
 
-.hidden {display: none;}
+.hidden {
+  display: none;
+  color: red;
+}
 // .button,
 // #gallery_images {
 //     background-color: $base-color;
