@@ -32,19 +32,18 @@
     .done(function(res){
       form.trigger('reset')
       $('.gallery-info').prepend(
-        `<div class="indiv-gallery">
-          <div class="gallery-votes">
-              <p>
-                <a href="/galleries/${res.id}/like"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
-                <p class="votes-count">
-                  ${res.votes}
-                </p>
-                <a href="/galleries/${res.id}/dislike"><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
-          </div>
-          <h3 class="gallery-name">${res.name}</h3>
-        </div>`
+        // `<div class="indiv-gallery">
+        //   <div class="gallery-votes">
+        //       <p>
+        //         <a href="/galleries/${res.id}/like"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        //         <p class="votes-count">
+        //           ${res.votes}
+        //         </p>
+        //         <a href="/galleries/${res.id}/dislike"><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
+        //   </div>
+        //   <h3 class="gallery-name">${res.name}</h3>
+        // </div>`
       )
-      console.log(res)
       $('#new-content').toggle()
     })
     .error(function(err){

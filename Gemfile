@@ -26,6 +26,8 @@ gem 'carrierwave-aws'
 gem 'neat'
 gem 'bourbon'
 # gem 'webpack-rails'
+
+gem 'sprockets-es6'
 gem "figaro"
 gem 'rails_12factor', group: :production
 
