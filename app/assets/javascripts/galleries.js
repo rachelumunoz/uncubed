@@ -11,9 +11,7 @@
     }).done(function(res){
       $('#new-content').html(res)
     }).error(function(err){
-      // alert(err.responseText)
-      console.log('error', err.responseText)
-      $('#error-msg').removeClass('hidden')
+      $('#error-msg').toggle()
       $('#error-msg').html(err.responseText)
     })
     $('#new-content').toggle()
@@ -37,7 +35,8 @@
       $('#new-content').toggle()
     })
     .error(function(err){
-      console.log('error', err)
+      $('#error-msg').toggle()
+      $('#error-msg').html(err.responseText)
     })
 
   })
@@ -62,30 +61,32 @@
     .done(function(res){
       $('.new-content .add-review').html(res)
     }).error(function(err){
-      //do error things
-      console.log('error', err)
+      $('#error-msg').toggle()
+      $('#error-msg').html(err.responseText)
     })
     $('.new-content .add-review').toggle()
   })
 
   // add review to gallery
-  $('body').on('click', '#add-review', function(e){
-    e.preventDefault()
-    var url = $(this).attr('href')
-    console.log(url)
-    $.ajax({
-      method: 'post',
-      url: url,
-      dataType: 'text'
-    })
-    .done(function(res){
-      $('.new-content .add-review').html(res)
-    })
-    .error(function(err){
-      //do error things
-      console.log('error', err)
-    })
-  })
+  // $('body').on('click', '#add-review', function(e){
+  //   e.preventDefault()
+  //   var url = $(this).attr('href')
+  //   var gallery = document.querySelector('[data-id]')
+  //   var galleryId = gallery.dataset.id
+  //   // console.log()
+  //   $.ajax({
+  //     method: 'post',
+  //     url: `/galleries/${galleryId}/comments`,
+  //     dataType: 'text'
+  //   })
+  //   .done(function(res){
+  //     $('.new-content .add-review').html(res)
+  //   })
+  //   .error(function(err){
+  //     //do error things
+  //     console.log('error', err)
+  //   })
+  // })
 
 
   //upvote & downvote

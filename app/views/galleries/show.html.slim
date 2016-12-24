@@ -1,5 +1,5 @@
 = render :partial => 'layouts/navbar'
-section class="section-galleries-show"
+section data-id="#{@gallery.id}"class="section-galleries-show"
   .title
     h1 = @gallery.name
     .sub-nav
@@ -7,6 +7,7 @@ section class="section-galleries-show"
         li = link_to "Add a Review", new_gallery_comment_path(@gallery), id: "add-review"
         li = link_to "Add Image", "#", id: "add-image"
   .new-content
+    div id="error-msg" class="hidden"
     div class="add-image hidden"
       = render :partial => 'shared/add_image', locals: {gallery: @gallery}
     .add-review

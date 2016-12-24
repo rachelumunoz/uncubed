@@ -14,3 +14,5 @@ section class="section-profile"
       h3 Your submitted images
     .submitted-galleries
       h3 Your submitted galleries
+      - current_user.submitted_galleries.each do |gallery|
+        p = link_to gallery.name, gallery_path(gallery.id)
