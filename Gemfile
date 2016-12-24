@@ -27,9 +27,11 @@ gem 'neat'
 gem 'bourbon'
 # gem 'webpack-rails'
 
-gem 'sprockets-es6'
 gem "figaro"
 gem 'rails_12factor', group: :production
+
+gem 'sprockets-es6'
+gem 'babel-transpiler', '~> 0.7.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

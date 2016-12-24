@@ -269,6 +269,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   acts-as-taggable-on (~> 4.0)
   acts_as_votable (~> 0.10.0)
+  babel-transpiler (~> 0.7.0)
   bourbon
   byebug
   capybara
