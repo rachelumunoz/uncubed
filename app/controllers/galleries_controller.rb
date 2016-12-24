@@ -22,6 +22,7 @@
     # byebug
     @gallery = Gallery.new(gallery_params)
     @gallery.submitted_by = current_user
+    # byebug
     if @gallery.save
       render json: @gallery, each_serializer: GallerySerializer
     else

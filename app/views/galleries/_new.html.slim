@@ -8,7 +8,7 @@
 
    / f.text_field :images, name: "gallery[images]"
   / f.input :images, as: :file, multiple: true, class: "add-images", name: "gallery[images]"
-   / f.file_field :images, multiple: true, class: "add-images", name: "gallery[images]"
+  = f.file_field :images, multiple: true, class: "add-images", name: "gallery[images]"
  
   = f.submit
 
