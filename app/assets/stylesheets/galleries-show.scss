@@ -1,34 +1,27 @@
 .section-galleries-show {
   margin: 0 auto;
-  text-align: center;
   padding: 0;
   display: flex;
   flex-direction: column;
-  .title {
+  
+  .header {
+    display: flex;
+    align-content: flex-end;
+    margin: 50px 150px;
+    
     h1 {
-      float: left;
-      margin-left: 200px;
-      margin-bottom: 75px;
-      margin-top: 50px;
+      margin: 0;
+      padding: 0;
+      flex: 5;
+    }
+
+    .sub-nav-gallery-show {
+      li {
+        display: inline-block;
+        padding: 17px 15px 15px 15px;
+      }
     }
   }
-
-  @include clearfix()
-}
-
-
-.sub-nav {
-  margin-right: 125px;
-  margin-top: 30px;
-  ul{
-    float: right;
-    li {
-      @include clearfix();
-      display: inline-block;
-      padding: 15px;
-    }
-  }
-  @include clearfix()
 }
 
 .gallery-content {

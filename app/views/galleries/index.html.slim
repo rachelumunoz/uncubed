@@ -1,12 +1,10 @@
 = render :partial => 'layouts/navbar'
 section class="section-galleries"
-  div.title
+  div.header.title
     h1 Galleries
-    div.sub-nav-galleries
-      ul class="sub-nav-galleries"
-        li  = link_to "All", "#all"
-        li = link_to "Add", "#", id: "add-gallery"
-  
+    ul.sub-nav-galleries
+      li  = link_to "All", "#all"
+      li = link_to "Add", "#", id: "add-gallery"
   div id="new-content"
   div id="error-msg" class="hidden"
     | error message
@@ -16,12 +14,12 @@ section class="section-galleries"
         .gallery-votes
           p = link_to like_gallery_path(gallery) do
             i class="fa fa-arrow-up" aria-hidden="true"  
-          p.votes-count =  gallery.upvotes
+          p.votes-count = gallery.upvotes
           p = link_to dislike_gallery_path(gallery) do
             i class="fa fa-arrow-down" aria-hidden="true" 
         h3 class="gallery-name" = link_to gallery.name, gallery_path(gallery)
         - if gallery.images.length > 0
           p class="gallery-image" = image_tag("https://s3.amazonaws.com/#{ENV["S3_BUCKET_NAME"]}/#{gallery.images.first.path}")
-        
+          
 
 / react_component('Main', {currentUser: current_user }, {prerender: true}) 
